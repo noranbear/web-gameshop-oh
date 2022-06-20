@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.UserMapper">
+
+	<insert id="insert" parameterType="userVO">
+		INSERT INTO CUST VALUES (NULL,#{name},#{id},#{pwd},#{email},#{phone},CURDATE())
+	</insert>
+	<update id="update" parameterType="userVO">
+		UPDATE CUST SET ID=#{id},NAME=#{name},PWD=#{pwd},EMAIL=#{email},PHONE=#{phone}
+		WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM CUST WHERE NUM=#{num}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="userVO">
+		SELECT * FROM CUST WHERE NUM=#{num}
+	</select>
+	<select id="selectall" resultType="userVO">
+		SELECT * FROM CUST
+	</select>
+	
+</mapper>

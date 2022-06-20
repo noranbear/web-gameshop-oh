@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.BoxMapper">
+
+	<insert id="insert" parameterType="boxVO">
+		INSERT INTO BOX VALUES (NULL,#{unum},#{pid},CURDATE(),#{kind})
+	</insert>
+	<update id="update" parameterType="boxVO">
+		UPDATE BOX SET ID=#{id},UNUM=#{unum},PID=#{pid},KIND=#{kind}
+		WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM BOX WHERE ID=#{id}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="boxVO">
+		SELECT * FROM BOX WHERE ID=#{id}
+	</select>
+	<select id="selectall" resultType="boxVO">
+		SELECT * FROM BOX
+	</select>
+	
+</mapper>
