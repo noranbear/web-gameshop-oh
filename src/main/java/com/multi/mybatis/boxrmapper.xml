@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.multi.mapper.BoxMapper">
 
 	<insert id="insert" parameterType="boxVO">
-		INSERT INTO BOX VALUES (#{id},#{unum},#{pid},CURDATE(),#{kind})
+		INSERT INTO BOX VALUES (NULL,#{unum},#{pid},CURDATE(),#{kind})
 	</insert>
 	<update id="update" parameterType="boxVO">
 		UPDATE BOX SET ID=#{id},UNUM=#{unum},PID=#{pid},KIND=#{kind}
