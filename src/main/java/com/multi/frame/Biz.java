@@ -2,6 +2,20 @@ package com.multi.frame;
 
 import java.util.List;
 
+/**
+ * @author noranbear
+ * @date 2022. 6. 20.
+ * @version 1.0
+ * @description
+ *
+ *
+ * =========================================================
+ * 	    DATE			 AUTHOR				    NOTE
+ * ---------------------------------------------------------
+ *  2022. 6. 20.		noranbear		   First Creation
+ *
+ * =========================================================
+ */
 public interface Biz<K, V> {
 	
 	public void register(V v) throws Exception;
