@@ -10,7 +10,7 @@ import com.multi.mapper.OdetailMapper;
 import com.multi.vo.OdetailVO;
 /**
  * @author najune
- * @date 
+ * @date 2022. 06. 20
  * @version 1.0
  * @description
  * OdetailBiz
