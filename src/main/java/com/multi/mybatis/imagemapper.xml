@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.ImageMapper">
+	
+	<insert id="insert" parameterType="imageVO">
+		INSERT INTO IMAGE VALUES (NULL,#{name},#{pid})
+	</insert>
+	<update id="update" parameterType="imageVO">
+		UPDATE IMAGE SET NAME=#{name},PID=#{pid} 
+		WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM IMAGE WHERE ID=#{id}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="imageVO">
+		SELECT * FROM IMAGE WHERE ID=#{id}
+	</select>
+	<select id="selectall" resultType="imageVO">
+		SELECT * FROM IMAGE
+	</select>
+
+</mapper>
+
+
+
+
+
+
