@@ -9,7 +9,7 @@ import com.multi.biz.OrderBiz;
 import com.multi.vo.OrderVO;
 /**
  * @author najune
- * @date
+ * @date 2022. 06. 20
  * @version 1.0
  * @description
  * OrderlnsertTest
