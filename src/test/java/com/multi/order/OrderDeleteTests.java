@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.multi.biz.OrderBiz;
 /**
  * @author najune
- * @date
+ * @date 2022. 06. 20
  * @version 1.0
  * @description
  * OrderDeleteTest
