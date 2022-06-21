@@ -1,8 +1,14 @@
 package com.multi.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.multi.biz.UserBiz;
+import com.multi.vo.UserVO;
 
 /**
  * @author noranbear
@@ -15,19 +21,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 	    DATE			 AUTHOR				    NOTE
  * ---------------------------------------------------------
  *  2022. 6. 21.		noranbear		   First Creation
+ *  2022. 6. 21.		qwaszx357		   loginlmpl add
  *
  * =========================================================
  */
 @Controller
 public class MainController {
 
+	@Autowired
+	UserBiz ubiz;
+	
 	@RequestMapping("/")
 	public String main() {
 		return "index";
 	}
 	
 	@RequestMapping("/login")
-	public String login(Model m) {
+	public String login(Model m, String msg) {
+		if(msg != null && msg.equals("f")) {
+			m.addAttribute("msg", "ID 혹은 PWD가 틀렸습니다.");
+		}
 		m.addAttribute("center", "login");
 		return "/index";
 	}
@@ -47,6 +60,39 @@ public class MainController {
 	@RequestMapping("/detail")
 	public String detail(Model m) {
 		m.addAttribute("center", "detail");
+		return "/index";
+	}
+	
+	@RequestMapping("/loginimpl")
+	public String loginimpl(Model m, String id, String pwd, HttpSession session) {
+		UserVO user = null;
+		try {
+			user = ubiz.getid(id);
+			if (user != null) {
+				if (user.getPwd().equals(pwd)) {
+					session.setAttribute("loginuser", user);
+				}else {
+					throw new Exception();
+				}
+			}else {
+				throw new Exception();
+			}
+		} catch (Exception e) {
+			return "redirect:/login?msg=f";
+		}
+		return "/index";
+	}
+	
+	@RequestMapping("/msg")
+	public String msg(Model m) {
+		return "msg";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(Model m, HttpSession session) {
+		if(session != null) {
+			session.invalidate();
+		}
 		return "/index";
 	}
 }
