@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.OdetailMapper">
+	
+	<select id="select" parameterType="int" resultType="OdetailVO">
+		SELECT * FROM ODETAIL WHERE NUM=#{num}
+	</select>
+	<select id="selectall" resultType="OdetailVO">
+		SELECT * FROM ODETAIL
+	</select>
+	<insert id="insert" parameterType="OdetailVO">
+		INSERT INTO ODETAIL VALUES (NULL,#{pid},#{onum})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM ODETAIL WHERE NUM=#{num}
+	</delete>
+	
+</mapper>
