@@ -17,7 +17,7 @@ import com.multi.vo.UserVO;
  * 	    DATE			AUTHOR				  NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		hongjihu			  UserMapper
- *  
+ *  2022. 6. 21.	   qwaszx357			selectid add
  *
  * =========================================================
  */
@@ -26,10 +26,12 @@ import com.multi.vo.UserVO;
 public interface  UserMapper {
 	
 	public void insert(UserVO b) throws Exception;
-	public void delete(int id) throws Exception;
+	public void delete(int num) throws Exception;
 	public void update(UserVO b) throws Exception;
 	
-	public UserVO select (int id) throws Exception;
+	public UserVO select (int num) throws Exception;
 	public List<UserVO> selectall() throws Exception;
+	
+	public UserVO selectid (String id) throws Exception;
 	
 }
