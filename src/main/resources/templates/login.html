@@ -1,4 +1,44 @@
+<!-- 
+2022. 06. 21
+Author: qwaszx357
+Version: 1.0
+login 제약사항 추가
+-->
 <meta charset="UTF-8">
+
+<style>
+	#login_msg{
+		color: red;
+	}
+</style>
+
+<script>
+$(document).ready(function(){
+
+	$('#id').blur(function(){
+		var id = $(this).val();
+		if (id == ''){
+			$('#login_msg').text("ID를 입력해주세요.");
+		};
+	});
+
+	$('#pwd').blur(function(){
+		var pwd = $(this).val();
+		if (pwd == ''){
+			$('#login_msg').text("Password를 입력해주세요.");
+		};
+	});
+	
+	$('#login_bt').click(function(){
+		
+		$('#login_form').attr({
+			'method':'post',
+			'action':'/loginimpl' 
+		});
+		$('#login_form').submit();
+	});
+});
+</script>
 
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
@@ -22,16 +62,19 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>Login</h3>
-                        <form action="#">
+                        <form action="#" id="login_form">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
+                                <input id="id" name="id" type="text" placeholder="ID">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input id="pwd" name="pwd" type="password" placeholder="Password">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <div>
+                            	<span id="login_msg" th:text="${msg}"></span>
+                            </div>
+                            <button id="login_bt" type="submit" class="site-btn">Login Now</button>
                         </form>
                         <a href="#" class="forget_pass">Forgot Your Password?</a>
                     </div>
@@ -49,8 +92,7 @@
                         <div class="login__social__links">
                             <span>or</span>
                             <ul>
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With
-                                Facebook</a></li>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With Facebook</a></li>
                                 <li><a href="#" class="google"><i class="fa fa-google"></i> Sign in With Google</a></li>
                                 <li><a href="#" class="twitter"><i class="fa fa-twitter"></i> Sign in With Twitter</a>
                                 </li>

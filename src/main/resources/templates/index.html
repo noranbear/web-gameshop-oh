@@ -18,6 +18,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anime | Template</title>
 
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
@@ -71,6 +74,8 @@
                                         <li><a href="#">Team Sports</a></li>
                                         <li><a href="#">Fishing & Hunting</a></li>
                                     </ul>
+                                    
+                                    
                                 </li>
                                 <li><a href="#">Contacts</a></li>
                                 <li><a href="/bmain">Library</a></li>
@@ -80,8 +85,18 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="/login"><span class="icon_profile"></span></a>
+                        
+                        <ul class="nav navbar-nav navbar-right"> 	
+					      	<li th:if="${session.loginuser == null}">
+					      	    <a href="#" class="search-switch"><span class="icon_search"></span></a>
+					      	    <a href="/login"><span class="icon_profile"></span></a>
+					      	</li>
+					      	<li th:unless="${session.loginuser == null}">
+					      		<a href="#" class="search-switch"><span class="icon_search"></span></a>
+					      		<a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+							</li>
+					    </ul>
+                        
                     </div>
                 </div>
             </div>

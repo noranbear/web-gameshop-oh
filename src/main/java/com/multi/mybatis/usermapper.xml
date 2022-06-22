@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</insert>
 	<update id="update" parameterType="userVO">
 		UPDATE CUST SET ID=#{id},NAME=#{name},PWD=#{pwd},EMAIL=#{email},PHONE=#{phone}
-		WHERE ID=#{id}
+		WHERE NUM=#{num}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM CUST WHERE NUM=#{num}
@@ -20,6 +20,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</select>
 	<select id="selectall" resultType="userVO">
 		SELECT * FROM CUST
+	</select>
+	
+	<select id="selectid" parameterType="String" resultType="userVO">
+		SELECT * FROM CUST WHERE ID=#{id}
 	</select>
 	
 </mapper>
