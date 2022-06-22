@@ -25,5 +25,4 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectid" parameterType="String" resultType="userVO">
 		SELECT * FROM CUST WHERE ID=#{id}
 	</select>
-	
 </mapper>

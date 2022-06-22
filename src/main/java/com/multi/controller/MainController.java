@@ -22,6 +22,7 @@ import com.multi.vo.UserVO;
  * ---------------------------------------------------------
  *  2022. 6. 21.		noranbear		   First Creation
  *  2022. 6. 21.		qwaszx357		   loginlmpl add
+ *  2022. 6. 21.		qwaszx357		   signuplmpl add
  *
  * =========================================================
  */
@@ -46,7 +47,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/signup")
-	public String signup(Model m) {
+	public String signup(Model m, String msg) {
+		if(msg != null && msg.equals("f")) {
+			m.addAttribute("msg", "ID, Password는 필수항목 입니다.");
+		}
 		m.addAttribute("center", "signup");
 		return "/index";
 	}
@@ -92,6 +96,24 @@ public class MainController {
 	public String logout(Model m, HttpSession session) {
 		if(session != null) {
 			session.invalidate();
+		}
+		return "/index";
+	}
+	
+	@RequestMapping("/signupimpl")
+	public String signupimpl(Model m, UserVO user, HttpSession session) {
+		if (user.getId().equals("") || user.getId() == null) {
+			return "redirect:/signup?msg=f";
+		}
+		if (user.getPwd().equals("") || user.getPwd() == null) {
+			return "redirect:/signup?msg=f";
+		}
+		try {
+			ubiz.register(user);
+			session.setAttribute("loginuser", user);
+			System.out.println(user);
+		} catch (Exception e) {
+			return "redirect:/signup";
 		}
 		return "/index";
 	}

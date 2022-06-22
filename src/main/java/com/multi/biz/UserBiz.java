@@ -56,4 +56,5 @@ public class UserBiz implements Biz<Integer, UserVO>  {
 	public UserVO getid(String k) throws Exception {
 		return dao.selectid(k);
 	} 
+
 }

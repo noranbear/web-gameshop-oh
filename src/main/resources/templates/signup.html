@@ -1,4 +1,53 @@
+<!-- 
+2022. 06. 21
+Author: qwaszx357
+Version: 1.0
+signup 기능 구현
+-->
 <meta charset="UTF-8">
+
+<style>
+#id_msg{
+	color: red;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+
+	// ID 중복 확인
+	$('#id').keyup(function(){
+		var inputid = $(this).val();
+		$.ajax({
+			url:'/checkid',
+			data:{id:inputid},
+			success:function(result){
+				if (result == '1') {
+					$('#id_msg').text('사용 불가능한 ID 입니다.');
+				} else {
+					$('#id_msg').text('사용 가능한 ID 입니다.');
+				}
+			}
+		});
+	});
+	
+	$('#pwd').blur(function(){
+		var pwd = $(this).val();
+		if (pwd.length < 4){
+			$('#login_msg').text("Password는 4글자 이상 입력해주세요.");
+		};
+	});
+
+	// 데이터 전송
+	$('#signup_btn').click(function(){
+		$('#signup_form').attr({
+			'method':'post',
+			'action':'signupimpl'
+		});
+		$('#signup_form').submit();
+	})
+});
+</script>
 
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
@@ -22,22 +71,34 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>Sign Up</h3>
-                        <form action="#">
+                        <form id="signup_form" action="#">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
+                                <input id="name" name="name" type="text" placeholder="Your Name">
+                                <span class="icon_profile"></span>
+                            </div>
+                            <!-- ID 제약사항이 출력되는 span -->
+                            <div>
+                            	<span id="id_msg" th:text="${msg}"></span>
+                            </div>
+                        	<div class="input__item">
+                                <input id="id" name="id" type="text" placeholder="ID">
+                                <span class="icon_id"></span>
+                            </div>
+                            <div class="input__item">
+                                <input id="pwd" name="pwd" type="password" placeholder="Password">
+                                <span class="icon_lock"></span>
+                            </div>
+                            <div class="input__item">
+                                <input id="mail" name="email" type="email" placeholder="Email address">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Your Name">
-                                <span class="icon_profile"></span>
+                                <input id="phone" name="phone" type="text" placeholder="Phone Number">
+                                <span class="icon_phone"></span>
                             </div>
-                            <div class="input__item">
-                                <input type="text" placeholder="Password">
-                                <span class="icon_lock"></span>
-                            </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <button id="signup_btn" type="submit" class="site-btn">Signup Now</button>
                         </form>
-                        <h5>Already have an account? <a href="#">Log In!</a></h5>
+                        <h5>Already have an account? <a href="/login">Log In!</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-6">
