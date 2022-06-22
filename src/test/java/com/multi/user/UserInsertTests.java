@@ -33,7 +33,6 @@ public class UserInsertTests {
 		
 		try {
 			biz.register(user);
-			System.out.println(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
