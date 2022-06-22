@@ -100,7 +100,7 @@ public class MainController {
 		}
 		return "/index";
 	}
-}
+
 
 	/*
   * signup
@@ -145,5 +145,6 @@ public class MainController {
 		m.addAttribute("bcenter", "allgame");
 		return "/index";
 	}
-	
+
+}
 	
