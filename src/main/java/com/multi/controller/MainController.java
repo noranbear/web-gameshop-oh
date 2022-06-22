@@ -17,14 +17,15 @@ import com.multi.vo.UserVO;
  * @description
  *
  *
- * =========================================================
- * 	    DATE			 AUTHOR				    NOTE
- * ---------------------------------------------------------
- *  2022. 6. 21.		noranbear		   First Creation
+ * ====================================================================
+ * 	    DATE			 AUTHOR				        NOTE
+ * --------------------------------------------------------------------
+ *  2022. 6. 21.		noranbear		        First Creation
+ *									     Adding box controller methods
  *  2022. 6. 21.		qwaszx357		   loginlmpl add
- *  2022. 6. 21.		qwaszx357		   signuplmpl add
+ *  2022. 6. 21.		        		   signuplmpl add
  *
- * =========================================================
+ * ====================================================================
  */
 @Controller
 public class MainController {
@@ -37,6 +38,9 @@ public class MainController {
 		return "index";
 	}
 	
+  /*
+  * login
+  */
 	@RequestMapping("/login")
 	public String login(Model m, String msg) {
 		if(msg != null && msg.equals("f")) {
@@ -45,28 +49,7 @@ public class MainController {
 		m.addAttribute("center", "login");
 		return "/index";
 	}
-	
-	@RequestMapping("/signup")
-	public String signup(Model m, String msg) {
-		if(msg != null && msg.equals("f")) {
-			m.addAttribute("msg", "ID, Password는 필수항목 입니다.");
-		}
-		m.addAttribute("center", "signup");
-		return "/index";
-	}
-	
-	@RequestMapping("/category")
-	public String category(Model m) {
-		m.addAttribute("center", "category");
-		return "/index";
-	}
-	
-	@RequestMapping("/detail")
-	public String detail(Model m) {
-		m.addAttribute("center", "detail");
-		return "/index";
-	}
-	
+
 	@RequestMapping("/loginimpl")
 	public String loginimpl(Model m, String id, String pwd, HttpSession session) {
 		UserVO user = null;
@@ -118,3 +101,49 @@ public class MainController {
 		return "/index";
 	}
 }
+
+	/*
+  * signup
+  */
+	@RequestMapping("/signup")
+	public String signup(Model m) {
+		m.addAttribute("center", "signup");
+		return "/index";
+	}
+	
+	@RequestMapping("/category")
+	public String category(Model m) {
+		m.addAttribute("center", "category");
+		return "/index";
+	}
+	
+	@RequestMapping("/detail")
+	public String detail(Model m) {
+		m.addAttribute("center", "detail");
+		return "/index";
+	}
+	
+	/*
+	 * box
+	 */
+	@RequestMapping("/bmain")
+	public String bmain(Model m) {
+		m.addAttribute("center", "bmain");
+		return "/index";
+	}
+	
+	@RequestMapping("/wishlist")
+	public String wishlist(Model m) {
+		m.addAttribute("center", "bmain");
+		m.addAttribute("bcenter", "wishlist");
+		return "/index";
+	}
+	
+	@RequestMapping("/allgame")
+	public String allgame(Model m) {
+		m.addAttribute("center", "bmain");
+		m.addAttribute("bcenter", "allgame");
+		return "/index";
+	}
+	
+	
