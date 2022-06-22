@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author noranbear
+ * @author noranbear,najune
  * @date 2022. 6. 21.
  * @version 1.0
  * @description
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 	    DATE			 AUTHOR				    NOTE
  * ---------------------------------------------------------
  *  2022. 6. 21.		noranbear		   First Creation
- *
+ *	2022. 6. 21			najune			   Controller 추
  * =========================================================
  */
 @Controller
@@ -44,9 +44,40 @@ public class MainController {
 		return "/index";
 	}
 	
+	@RequestMapping("/action")
+	public String action(Model m) {
+		m.addAttribute("center", "action");
+		return "/index";
+	}
+	
+	@RequestMapping("/rpg")
+	public String rpg(Model m) {
+		m.addAttribute("center", "rpg");
+		return "/index";
+	}
+	
+	@RequestMapping("/sports")
+	public String sports(Model m) {
+		m.addAttribute("center", "sports");
+		return "/index";
+	}
+	
 	@RequestMapping("/detail")
 	public String detail(Model m) {
 		m.addAttribute("center", "detail");
 		return "/index";
 	}
+	
+	@RequestMapping("/two")
+	public String two(Model m) {
+		m.addAttribute("center", "two");
+		return "/index";
+	}
+	
+	@RequestMapping("/three")
+	public String three(Model m) {
+		m.addAttribute("center", "three");
+		return "/index";
+	}
+	
 }
