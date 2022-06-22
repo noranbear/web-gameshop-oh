@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @description
  *
  *
- * =========================================================
- * 	    DATE			 AUTHOR				    NOTE
- * ---------------------------------------------------------
- *  2022. 6. 21.		noranbear		   First Creation
- *
- * =========================================================
+ * ====================================================================
+ * 	    DATE			 AUTHOR				        NOTE
+ * --------------------------------------------------------------------
+ *  2022. 6. 21.		noranbear		        First Creation
+ *									     Adding box controller methods
+ * ====================================================================
  */
 @Controller
 public class MainController {
@@ -49,4 +49,29 @@ public class MainController {
 		m.addAttribute("center", "detail");
 		return "/index";
 	}
+	
+	/*
+	 * box
+	 */
+	@RequestMapping("/bmain")
+	public String bmain(Model m) {
+		m.addAttribute("center", "bmain");
+		return "/index";
+	}
+	
+	@RequestMapping("/wishlist")
+	public String wishlist(Model m) {
+		m.addAttribute("center", "bmain");
+		m.addAttribute("bcenter", "wishlist");
+		return "/index";
+	}
+	
+	@RequestMapping("/allgame")
+	public String allgame(Model m) {
+		m.addAttribute("center", "bmain");
+		m.addAttribute("bcenter", "allgame");
+		return "/index";
+	}
+	
+	
 }
