@@ -157,6 +157,22 @@ public class MainController {
 		m.addAttribute("bcenter", "allgame");
 		return "/index";
 	}
+	
+	
+	/*
+	 * cart
+	 */
+	@RequestMapping("/cart")
+	public String cart(Model m) {
+		m.addAttribute("center", "cart/cart");
+		return "/index";
+	}
+	
+	@RequestMapping("/payment")
+	public String payment(Model m) {
+		m.addAttribute("center", "cart/payment");
+		return "/index";
+	}
 
 }
 	
