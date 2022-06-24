@@ -1,5 +1,7 @@
 package com.multi.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
+import com.multi.vo.ProductVO;
 import com.multi.vo.UserVO;
 
 /**
@@ -32,6 +36,9 @@ public class MainController {
 
 	@Autowired
 	UserBiz ubiz;
+	
+	@Autowired
+	ProductBiz pbiz;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -93,7 +100,7 @@ public class MainController {
 		m.addAttribute("center", "signup");
 		return "/index";
 	}
-	
+
 	@RequestMapping("/signupimpl")
 	public String signupimpl(Model m, UserVO user, HttpSession session) {
 		if (user.getId().equals("") || user.getId() == null) {
@@ -111,7 +118,9 @@ public class MainController {
 		}
 		return "/index";
 	}
-	
+
+
+
 	@RequestMapping("/category")
 	public String category(Model m) {
 		m.addAttribute("center", "category");
