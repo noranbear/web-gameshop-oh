@@ -14,7 +14,15 @@ signup 기능 구현
 
 <script>
 $(document).ready(function(){
-
+	
+	var phone = $('input[name="phone"]').val();
+	$('#phone').keydown(function(){
+		
+		if (phone.length > 3){
+			phone += "-";
+		};
+	});
+	
 	// ID 중복 확인
 	$('#id').keyup(function(){
 		var inputid = $(this).val();
@@ -34,8 +42,10 @@ $(document).ready(function(){
 	$('#pwd').blur(function(){
 		var pwd = $(this).val();
 		if (pwd.length < 4){
-			$('#login_msg').text("Password는 4글자 이상 입력해주세요.");
-		};
+			$('#id_msg').text("Password는 4글자 이상 입력해주세요.");
+		} else {
+			$('#id_msg').text('');
+		}
 	});
 
 	// 데이터 전송
