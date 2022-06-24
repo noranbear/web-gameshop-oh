@@ -18,6 +18,7 @@ import com.multi.vo.ProductVO;
  * 	    DATE			   AUTHOR				NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357		   First creation
+ *  2022. 6. 22.		 qwaszx357		   getaction add
  *  
  * =========================================================
  */
@@ -31,4 +32,13 @@ public interface ProductMapper {
 	
 	public ProductVO select(int id) throws Exception;
 	public List<ProductVO> selectall() throws Exception;
+	
+	public List<ProductVO> getaction() throws Exception;
+	public List<ProductVO> getaction1() throws Exception;
+	public List<ProductVO> getaction2() throws Exception;
+	public List<ProductVO> getaction3() throws Exception;
+	
+	public List<ProductVO> newgame() throws Exception;
+	
+	public List<ProductVO> star() throws Exception;
 }

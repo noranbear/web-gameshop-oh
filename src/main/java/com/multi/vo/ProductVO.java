@@ -17,6 +17,7 @@ import lombok.ToString;
  * 	    DATE			   AUTHOR			 NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357		First creation
+ *  2022. 6. 23.		 qwaszx357		  imgname add
  *
  * =========================================================
  */
@@ -36,9 +37,13 @@ public class ProductVO {
 	private String reldate;
 	private int ctid;
 	
-	// Constructor for update
-	public ProductVO(String name, int price, String bite, String dev, String reldate, int ctid) {
+	private String imgname;
+	private int star;
+	
+	// Constructor for insert, update
+	public ProductVO(int id, String name, int price, String bite, String dev, String reldate, int ctid) {
 		
+		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.bite = bite;

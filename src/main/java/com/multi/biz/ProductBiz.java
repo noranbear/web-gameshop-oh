@@ -20,6 +20,7 @@ import com.multi.vo.ProductVO;
  * 	    DATE			   AUTHOR				NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357			First creation
+ *  2022. 6. 22.		 qwaszx357		    getaction add
  *  
  * =========================================================
  */
@@ -53,5 +54,28 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 	public List<ProductVO> get() throws Exception {
 		return dao.selectall();
 	}
+	
+	public List<ProductVO> getaction() throws Exception {
+		return dao.getaction();
+	}
+	
+	public List<ProductVO> getaction1() throws Exception {
+		return dao.getaction1();
+	}
+	
+	public List<ProductVO> getaction2() throws Exception {
+		return dao.getaction2();
+	}
+	
+	public List<ProductVO> getaction3() throws Exception {
+		return dao.getaction3();
+	}
 
+	public List<ProductVO> newgame() throws Exception {
+		return dao.newgame();
+	}
+
+	public List<ProductVO> star() throws Exception {
+		return dao.star();
+	}
 }

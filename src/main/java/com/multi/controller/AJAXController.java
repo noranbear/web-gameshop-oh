@@ -1,10 +1,15 @@
 package com.multi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
+import com.multi.vo.ProductVO;
 import com.multi.vo.UserVO;
 
 /**
@@ -27,6 +32,9 @@ public class AJAXController {
 	@Autowired
 	UserBiz ubiz;
 	
+	@Autowired
+	ProductBiz pbiz;
+	
 	// ID 중복 확인
 	@RequestMapping("/checkid")
 	public String checkid(String id) {
@@ -48,4 +56,5 @@ public class AJAXController {
 		}
 		return result;
 	}
+
 }
