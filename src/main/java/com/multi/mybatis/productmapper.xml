@@ -73,5 +73,26 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		WHERE p.ctid=23 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 
+	<!-- Sports page -->
+	<select id="getsports" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (31, 32, 33) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
+	</select>
+	<select id="getsports1" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+      	INNER JOIN IMAGE i ON p.id = i.pid
+      	WHERE p.ctid=31 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getsports2" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=32 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getsports3" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=33 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
 
 </mapper>

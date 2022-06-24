@@ -94,5 +94,22 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 	public List<ProductVO> getrpg3() throws Exception {
 		return dao.getrpg3();
 	}
+	
+	// Sports
+	public List<ProductVO> getsports() throws Exception {
+		return dao.getsports();
+	}
+	
+	public List<ProductVO> getsports1() throws Exception {
+		return dao.getsports1();
+	}
+	
+	public List<ProductVO> getsports2() throws Exception {
+		return dao.getsports2();
+	}
+	
+	public List<ProductVO> getsports3() throws Exception {
+		return dao.getsports3();
+	}
 
 }

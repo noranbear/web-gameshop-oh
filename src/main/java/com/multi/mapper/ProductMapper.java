@@ -48,5 +48,11 @@ public interface ProductMapper {
 	public List<ProductVO> getrpg1() throws Exception;
 	public List<ProductVO> getrpg2() throws Exception;
 	public List<ProductVO> getrpg3() throws Exception;
+	
+	// Sports
+	public List<ProductVO> getsports() throws Exception;
+	public List<ProductVO> getsports1() throws Exception;
+	public List<ProductVO> getsports2() throws Exception;
+	public List<ProductVO> getsports3() throws Exception;
 
 }
