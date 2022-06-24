@@ -3,18 +3,19 @@
 ---------------------------------------------------------------
 	Date			Author					Note
 ---------------------------------------------------------------
-2022. 06. 22	  qwaszx357  		Action category page
+2022. 06. 22	  qwaszx357  		Action1 category page
 
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 #gname, #ngname, #ngdate {
 	color: white
 }
-
 #new_img {
 	width: 500px;
 	height: 200px;
@@ -58,7 +59,8 @@
                 <div class="breadcrumb__links">
                     <a href="#"><i class="fa fa-home"></i> Home</a>
                     <a href="/category">Categories</a>
-                    <span>Action</span>
+                    <a href="/action">Rpg</a>
+                    <span>Adventure</span>
                 </div>
             </div>
         </div>
@@ -76,7 +78,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6">
                                 <div class="section-title">
-                                    <h4>Action</h4>
+                                    <h4>Adventure</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6">
@@ -91,22 +93,22 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                                     <div class="ep">
-                                    	<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
                                     </div>
                                     <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
                                 </div>
                                 <div class="product__item__text">
-									<h5 id="gname" th:text="${p.name}"><a href="#">Game Name</a></h5>
+                                    <h5 id="gname" th:text="${p.name}"><a href="#">Game Name</a></h5>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-				<div class="product__pagination" id="actiongame">
-                    <a href="#" class="current-page" value="1">1</a>
-                    <a href="#" value="2">2</a>
+                <div class="product__pagination">
+                    <a href="#" class="current-page">1</a>
+                    <a href="#" >2</a>
                     <a href="#">3</a>
                     <a href="#">4</a>
                     <a href="#">5</a>
@@ -115,7 +117,7 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="product__sidebar">
-                       <div class="product__sidebar__view">
+                    <div class="product__sidebar__view">
                             <div class="section-title">
                                 <h5>Top played</h5>
                             </div>
@@ -150,20 +152,20 @@
 						</div>
 
 					</div>
-			    <div class="product__sidebar__comment">
-			        <div class="section-title">
-			            <h5>New</h5>
-			        </div>
-			        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
-				       <div class="filter__gallery">
-	                        <div class="product__sidebar__view__item set-bg mix day years"
-	                        th:attr="data-setbg='img/all/'+${np.imgname}">
-	                        <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
-	                        <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
+				    <div class="product__sidebar__comment">
+				        <div class="section-title">
+				            <h5>New</h5>
+				        </div>
+				        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
+				            <div class="filter__gallery">
+	                           <div class="product__sidebar__view__item set-bg mix day years"
+	                           th:attr="data-setbg='img/all/'+${np.imgname}">
+	                           <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
+	                           <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
 				            </div>
 				        </div>
 				    </div>
-			    </div>
+				</div>
 			</div>
 		</div>
 	</div>

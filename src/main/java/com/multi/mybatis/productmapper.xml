@@ -21,76 +21,57 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectall" resultType="productVO">
 		SELECT * FROM PRODUCT
 	</select>
-
-	<!-- Action page -->
-	<select id="getaction" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname,
-			CASE
-				WHEN p.id LIKE "%0" OR p.id LIKE "%1" THEN 1
-			    WHEN p.id LIKE "%2" OR p.id LIKE "%3" THEN 2
-			    WHEN p.id LIKE "%3" OR p.id LIKE "%4" THEN 3
-			    WHEN p.id LIKE "%4" OR p.id LIKE "%5" OR p.id LIKE "%6" THEN 4
-			    WHEN p.id LIKE "%7" OR p.id LIKE "%8" OR p.id LIKE "%9" THEN 5
-			END AS star
-		FROM PRODUCT p INNER JOIN IMAGE i ON p.id = i.pid
-		WHERE p.ctid IN (11, 12, 13) AND i.name LIKE '%2%' GROUP BY p.name ORDER BY p.name LIMIT 9
-	</select>
-
-	<select id="getaction1" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname, 
-			CASE
-				WHEN p.id LIKE "%0" OR p.id LIKE "%1" THEN 1
-			    WHEN p.id LIKE "%2" OR p.id LIKE "%3" THEN 2
-			    WHEN p.id LIKE "%3" OR p.id LIKE "%4" THEN 3
-			    WHEN p.id LIKE "%4" OR p.id LIKE "%5" OR p.id LIKE "%6" THEN 4
-			    WHEN p.id LIKE "%7" OR p.id LIKE "%8" OR p.id LIKE "%9" THEN 5
-			END AS star
-		FROM PRODUCT p INNER JOIN IMAGE i ON p.id = i.pid
-		WHERE p.ctid=11 AND i.name LIKE '%2%' GROUP BY p.name ORDER BY p.name
-	</select>
-	<select id="getaction2" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname,
-		CASE
-				WHEN p.id LIKE "%0" OR p.id LIKE "%1" THEN 1
-			    WHEN p.id LIKE "%2" OR p.id LIKE "%3" THEN 2
-			    WHEN p.id LIKE "%3" OR p.id LIKE "%4" THEN 3
-			    WHEN p.id LIKE "%4" OR p.id LIKE "%5" OR p.id LIKE "%6" THEN 4
-			    WHEN p.id LIKE "%7" OR p.id LIKE "%8" OR p.id LIKE "%9" THEN 5
-			END AS star
-		FROM PRODUCT p INNER JOIN IMAGE i ON p.id = i.pid
-		WHERE p.ctid=12 AND i.name LIKE '%2%' GROUP BY p.name ORDER BY p.name
-	</select>
-	<select id="getaction3" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname,
-			CASE
-				WHEN p.id LIKE "%0" OR p.id LIKE "%1" THEN 1
-			    WHEN p.id LIKE "%2" OR p.id LIKE "%3" THEN 2
-			    WHEN p.id LIKE "%3" OR p.id LIKE "%4" THEN 3
-			    WHEN p.id LIKE "%4" OR p.id LIKE "%5" OR p.id LIKE "%6" THEN 4
-			    WHEN p.id LIKE "%7" OR p.id LIKE "%8" OR p.id LIKE "%9" THEN 5
-			END AS star
-		FROM PRODUCT p INNER JOIN IMAGE i ON p.id = i.pid
-		WHERE p.ctid=13 AND i.name LIKE '%2%' GROUP BY p.name ORDER BY p.name
-	</select>
 	
 	<!-- New  -->
 	<select id="newgame" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname,
-			CASE
-				WHEN p.id LIKE "%0" OR p.id LIKE "%1" THEN 1
-			    WHEN p.id LIKE "%2" OR p.id LIKE "%3" THEN 2
-			    WHEN p.id LIKE "%3" OR p.id LIKE "%4" THEN 3
-			    WHEN p.id LIKE "%4" OR p.id LIKE "%5" OR p.id LIKE "%6" THEN 4
-			    WHEN p.id LIKE "%7" OR p.id LIKE "%8" OR p.id LIKE "%9" THEN 5
-			END AS star
-		FROM PRODUCT p INNER JOIN IMAGE i ON p.id = i.pid
-		WHERE i.name LIKE '%1%' GROUP BY p.name ORDER BY reldate DESC LIMIT 3
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE i.name LIKE '%1%' ORDER BY reldate DESC LIMIT 2
 	</select>
 
+	<!-- Action page -->
+	<select id="getaction" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (11, 12, 13) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
+	</select>
+	<select id="getaction1" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+      	INNER JOIN IMAGE i ON p.id = i.pid
+      	WHERE p.ctid=11 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getaction2" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=12 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getaction3" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=13 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	
+	<!-- RPG page -->
+	<select id="getrpg" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (21, 22, 23) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
+	</select>
+	<select id="getrpg1" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+      	INNER JOIN IMAGE i ON p.id = i.pid
+      	WHERE p.ctid=21 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getrpg2" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=22 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+	<select id="getrpg3" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid=23 AND i.name LIKE '%2%' ORDER BY p.name
+	</select>
+
+
 </mapper>
-
-
-
-
-
-

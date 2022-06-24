@@ -14,17 +14,17 @@ import com.multi.vo.ProductVO;
  * @date 2022. 6. 24.
  * @version 1.0
  * @description
- * Product Select Star Test
+ * Product Select RPG3 Test
  *
  * =========================================================
- * 	    DATE			   AUTHOR				NOTE
+ * 	    DATE			   AUTHOR				 NOTE
  * ---------------------------------------------------------
  *  2022. 6. 24.		 qwaszx357			First creation
  *  
  * =========================================================
  */
 @SpringBootTest
-class ProductSelectStarTests {
+class ProductSelectRpg3Tests {
 
 	@Autowired
 	ProductBiz biz;
@@ -34,7 +34,7 @@ class ProductSelectStarTests {
 		List<ProductVO> list = null;
 		
 		try {
-			list = biz.star();
+			list = biz.getrpg3();
 			for (ProductVO obj : list) {
 				System.out.println(obj);
 			}
