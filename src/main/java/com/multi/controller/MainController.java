@@ -90,6 +90,15 @@ public class MainController {
 		return "/index";
 	}
 	
+  /*
+  * signup
+  */
+	@RequestMapping("/signup")
+	public String signup(Model m) {
+		m.addAttribute("center", "signup");
+		return "/index";
+	}
+  
 	@RequestMapping("/signupimpl")
 	public String signupimpl(Model m, UserVO user, HttpSession session) {
 		if (user.getId().equals("") || user.getId() == null) {
@@ -109,15 +118,6 @@ public class MainController {
 	}
 
 
-	/*
-  * signup
-  */
-	@RequestMapping("/signup")
-	public String signup(Model m) {
-		m.addAttribute("center", "signup");
-		return "/index";
-	}
-	
 	@RequestMapping("/category")
 	public String category(Model m) {
 		m.addAttribute("center", "category");
@@ -153,6 +153,5 @@ public class MainController {
 		return "/index";
 	}
 
-	
 }
 	
