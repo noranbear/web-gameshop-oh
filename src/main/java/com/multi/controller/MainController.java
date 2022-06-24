@@ -26,8 +26,8 @@ import com.multi.vo.UserVO;
  * --------------------------------------------------------------------
  *  2022. 6. 21.		noranbear		        First Creation
  *									     Adding box controller methods
- *  2022. 6. 21.		qwaszx357		   loginlmpl add
- *  2022. 6. 21.		        		   signuplmpl add
+ *  2022. 6. 21.		qwaszx357		   		loginlmpl add
+ *  2022. 6. 21.		        		   		signuplmpl add
  *
  * ====================================================================
  */
@@ -45,9 +45,10 @@ public class MainController {
 		return "index";
 	}
 	
-  /*
-  * login
-  */
+	
+    /*
+    * login
+    */
 	@RequestMapping("/login")
 	public String login(Model m, String msg) {
 		if(msg != null && msg.equals("f")) {
@@ -90,15 +91,16 @@ public class MainController {
 		return "/index";
 	}
 	
-  /*
-  * signup
-  */
+	
+	/*
+	* signup
+    */
 	@RequestMapping("/signup")
 	public String signup(Model m) {
 		m.addAttribute("center", "signup");
 		return "/index";
 	}
-  
+
 	@RequestMapping("/signupimpl")
 	public String signupimpl(Model m, UserVO user, HttpSession session) {
 		if (user.getId().equals("") || user.getId() == null) {
@@ -118,6 +120,7 @@ public class MainController {
 	}
 
 
+
 	@RequestMapping("/category")
 	public String category(Model m) {
 		m.addAttribute("center", "category");
@@ -129,6 +132,17 @@ public class MainController {
 		m.addAttribute("center", "detail");
 		return "/index";
 	}
+	
+	
+	/*
+	 * profile
+	 */
+	@RequestMapping("/profile")
+	public String profile(Model m) {
+		m.addAttribute("center", "profile");
+		return "/index";
+	}
+	
 	
 	/*
 	 * box
