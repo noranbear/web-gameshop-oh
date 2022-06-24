@@ -12,6 +12,40 @@
 #gname, #ngname, #ngdate {
 	color: white
 }
+
+#new_img {
+	width: 500px;
+	height: 200px;
+}
+
+/* price box custom */
+.product__item__pic .view {
+    font-size: 20px;
+    font-color: white;
+    color: #ffffff;
+    background: black;             /* Fallback color */
+	background: rgba(0, 0, 0, 1);     /* Black background with 0.5 opacity */
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    /*#e53637 or slategrey*/
+    
+}
+
+.product__item__pic .comment {
+	font-size: 13px;
+	color: #ffffff;
+	background: black;
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 4px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
 </style>
 
 <!-- Breadcrumb Begin -->
@@ -55,7 +89,7 @@
 
                         <div class="col-lg-4 col-md-6 col-sm-6" th:each="p:${plist}">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/action/'+${p.imgname}">
+                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                                     <div class="ep">
                                     	<span class="fa fa-star" th:text="' ' + ${p.star} + ' / 5'"></span>
                                     </div>
@@ -82,42 +116,59 @@
             <div class="col-lg-4 col-md-6 col-sm-8">
                <div class="product__sidebar">
                    <div class="product__sidebar__view">
-                       <div class="section-title">
-                           <h5>Top Views</h5>
-                       </div>
-                       <ul class="filter__controls">
-                           <li class="active" data-filter="*">Day</li>
-                           <li data-filter=".week">Week</li>
-                           <li data-filter=".month">Month</li>
-                           <li data-filter=".years">Years</li>
-                       </ul>
-                       <div class="filter__gallery">
-                           <div class="product__sidebar__view__item set-bg mix day years"
-                           data-setbg="img/sidebar/tv-1.jpg">
-                           <div class="ep">18 / ?</div>
-                           <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                           <h5><a href="#">Boruto: Naruto next generations</a></h5>
-			            </div>
-			        </div>
-			    </div>
+                          <div class="section-title">
+                              <h5>Top played</h5>
+                          </div>
+                          <ul class="filter__controls">
+                              <li class="active" data-filter="*">Day</li>
+                              <li data-filter=".name">week</li>
+                              <li data-filter=".price">month</li>
+                              <li data-filter=".reldate">year</li>
+                          </ul>
+					<div class="filter__gallery">
+						<div class="product__sidebar__view__item set-bg mix day reldate"
+							data-setbg="img/all/battlefield_v_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">battlefield</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix name price"
+							data-setbg="img/all/eternal_edge1.jpg">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">eternal</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix reldate name"
+							data-setbg="img/all/destiny_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">destiny</a></h5>
+						</div>
+	
+						<div class="product__sidebar__view__item set-bg mix name day"
+							data-setbg="img/all/golf_gang_1.jpg">
+							<div class="view"><i class="fa fa-circle-down"></i> 6578</div>
+							<h5><a href="#">golf_gang</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix day"
+							data-setbg="img/all/naraka_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 7709</div>
+							<h5><a href="#">naraka</a></h5>
+						</div>
+					</div>
+	
+				</div>
 			    <div class="product__sidebar__comment">
 			        <div class="section-title">
 			            <h5>New</h5>
 			        </div>
-			        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
-			            <div class="product__sidebar__comment__item__pic">
-			                <img src="img/sidebar/comment-4.jpg" alt="">
-			            </div>
-			            <div class="product__sidebar__comment__item__text">
-			                <ul>
-			                    <li>Wish</li>
-			                    <li>Cart</li>
-			                </ul>
-			                <h5 id="ngname" th:text="${np.name}"><a href="#">game name</a></h5>
-			                <h6 id="ngdate" th:text="${np.reldate}"><a href="#">game reldate</a></h6>
-			                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-			            </div>
-			        </div>
+				        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
+				            
+				            <div class="filter__gallery">
+	                           <div class="product__sidebar__view__item set-bg mix day years"
+	                           th:attr="data-setbg='img/all/'+${np.imgname}">
+	                           <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
+	                           <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
+				            </div>
+				        </div>
+				    </div>
 			    </div>
 			</div>
 		</div>
