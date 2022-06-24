@@ -1,7 +1,5 @@
 package com.multi.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
-import com.multi.vo.ProductVO;
 import com.multi.vo.UserVO;
 
 /**

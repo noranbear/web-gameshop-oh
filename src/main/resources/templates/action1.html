@@ -93,7 +93,7 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                                     <div class="ep">
-										<span class="fa fa-star" th:text="' ' + ${p.star} + ' / 5'"></span>
+										<span class="fa fa-star"></span>
                                     </div>
                                     <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
@@ -149,11 +149,6 @@
 								<div class="view"><i class="fa fa-circle-down"></i> 6578</div>
 								<h5><a href="#">golf_gang</a></h5>
 							</div>
-							<div class="product__sidebar__view__item set-bg mix day"
-								data-setbg="img/all/naraka_1.png">
-								<div class="view"><i class="fa fa-circle-down"></i> 7709</div>
-								<h5><a href="#">naraka</a></h5>
-							</div>
 						</div>
 
 					</div>
@@ -162,7 +157,6 @@
 				            <h5>New</h5>
 				        </div>
 				        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
-				            
 				            <div class="filter__gallery">
 	                           <div class="product__sidebar__view__item set-bg mix day years"
 	                           th:attr="data-setbg='img/all/'+${np.imgname}">
@@ -175,5 +169,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </section>
 <!-- Product Section End -->
