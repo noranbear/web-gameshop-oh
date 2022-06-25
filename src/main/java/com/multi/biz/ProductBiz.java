@@ -22,6 +22,7 @@ import com.multi.vo.ProductVO;
  *  2022. 6. 20.		 qwaszx357			First creation
  *  2022. 6. 22.		 qwaszx357		    getaction add
  *  2022. 6. 24.		 qwaszx357		  	  RPG add
+ *  										search add
  *  
  * =========================================================
  */
@@ -112,4 +113,17 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 		return dao.getsports3();
 	}
 
+	// Search
+	public List<ProductVO> search1(String txt) throws Exception {
+		return dao.search1(txt);
+	}
+	
+	public List<ProductVO> search2(String txt) throws Exception {
+		return dao.search2(txt);
+	}
+	
+	public List<ProductVO> search3(String txt) throws Exception {
+		return dao.search3(txt);
+	}
+	
 }

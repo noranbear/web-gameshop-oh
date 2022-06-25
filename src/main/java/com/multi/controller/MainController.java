@@ -1,5 +1,7 @@
 package com.multi.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
+import com.multi.vo.ProductVO;
 import com.multi.vo.UserVO;
 
 /**
@@ -25,6 +28,7 @@ import com.multi.vo.UserVO;
  *									     Adding box controller methods
  *  2022. 06. 21.		qwaszx357		   		loginlmpl add
  *  2022. 06. 21.		        		   		signuplmpl add
+ *  2022. 6. 24.		qwaszx357				Search add
  *	2022. 06. 25.		noranbear			 box controllers 수정
  *
  * ====================================================================
@@ -182,5 +186,29 @@ public class MainController {
 		return "/index";
 	}
 
+	/*
+	 * Search
+	 */
+	@RequestMapping("/search")
+	public String search(Model m, String txt, String sort) {
+		List<ProductVO> list = null;
+		try {
+			if(sort.equals("1")) {
+				list = pbiz.search1(txt);
+				m.addAttribute("sgame", list);
+			} else if(sort.equals("2")) {
+				list = pbiz.search2(txt);
+				m.addAttribute("sgame", list);
+			} else if(sort.equals("3")) {
+				list = pbiz.search3(txt);
+				m.addAttribute("sgame", list);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		m.addAttribute("center", "search");
+		return "/index";
+	}
 }
 	
