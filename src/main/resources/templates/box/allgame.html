@@ -1,127 +1,84 @@
-<!-- Version: 2.0 -->
+<meta charset="UTF-8">
+
+<!-- Version: 1.0 -->
 <!--
 ---------------------------------------------------------------
 	Date			 Author					Note
 ---------------------------------------------------------------
-2022. 06. 21		noranbear			First Creation
-2022. 06. 22		  				¿¸π›¿˚¿Œ ∆‰¿Ã¡ˆ µ¿⁄¿Œ∞˙ ƒ´µÂ»ø∞˙ ±∏«ˆ
-
+2022. 06. 25		noranbear		
 ---------------------------------------------------------------
 -->
+
+<link rel="stylesheet" href="ourcss/wishlist-style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 <style>
-.product__item__pic {
-	border-radius: 8px;
-	box-shadow: 10px 20px 35px rgba(0,0,0,0.7);
-	overflow: hidden;
-	transition: 0.5s;
-	
+.product__item__text h5 {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 15px;
 }
-.product__item__pic:hover {
-	transform:scale(1.05);
+
+/* Îã§Ïö¥Î°úÎìú Icon */
+.material-symbols-outlined {
+	font-size: 50px;
+	font-weight: bold;
 }
-.product-item-contrast {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	backdrop-filter: contrast(120%);
+
+.btn {
+	border-radius: 100px;
+	padding: 0;
+	width: 50%;
 }
-.product-item-gradient {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	/*background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));*/
-	opacity: 0;
-	transition: 0.7s;
-	
-	/*background: rgba(255,255,255,0.1);*/
-	background: rgba(40,40,40,0.3);
-	border-top: 1px solid rgba(255,255,255,0.5);
-	border-left: 1px solid rgba(255,255,255,0.5);
-	backdrop-filter: blur(10px);
-	
-}
-.product-item-gradient:hover {
-	opacity: 100;
-}
-.text-wrap{
-	position: relative;
-	bottom: 0;
-	padding: 20px;
-}
-.text-wrap h4 {
-	font-weight: 650;
-	margin-bottom: 10px;
-	color: white;
-	text-shadow: 2px 2px 2px slategrey;
-}
-.text-wrap p {
-	font-size: 12px;
-	margin: 0;
-	color: lightgrey;
+
+.btn:hover {
+	background: #07081f;
 }
 </style>
 
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg="img/popular/strange.jpg">
-        	<div class="product-item-contrast"></div>
-        	<div class="product-item-gradient">
-	        	<div class="text-wrap">
-	        		<h4>Doctor Strange</h4>
-	        		<br><br><br><br><br><br>
-	        		<p>TIME PLAYED</p>
-	        		<p>Last two weeks: 0 min</p>
-	        		<p>Total: 25 hrs</p>
-	        	</div>
-        	</div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg="img/popular/popular-2.jpg">
-        	<div class="product-item-contrast"></div>
-        	<div class="product-item-gradient">
-	        	<div class="text-wrap">
-	        		<h4>Doctor Strange</h4>
-	        		<br><br><br><br><br><br>
-	        		<p>TIME PLAYED</p>
-	        		<p>Last two weeks: 0 min</p>
-	        		<p>Total: 25 hrs</p>
-	        	</div>
-        	</div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg="img/popular/popular-3.jpg">
-        	<div class="product-item-contrast"></div>
-        	<div class="product-item-gradient">
-	        	<div class="text-wrap">
-	        		<h4>Doctor Strange</h4>
-	        		<br><br><br><br><br><br>
-	        		<p>TIME PLAYED</p>
-	        		<p>Last two weeks: 0 min</p>
-	        		<p>Total: 25 hrs</p>
-	        	</div>
-        	</div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg="img/popular/popular-4.jpg">
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg="img/popular/popular-5.jpg">
-        </div>
-    </div>
+
+<div class="row">
+
+	<!-- Îã§Ïö¥ Ïïà Î∞õÏùÄ Í≤ΩÏö∞ -->
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product__item">
+    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+				<!-- Ïù¥ÎØ∏ÏßÄ ÏÑ†Î™ÖÌïòÍ≤å ÎßåÎì¨ -->
+				<div class="product-item-contrast"></div>
+					<div class="product__item__text">
+						<div id="rating">Rating</div>
+				        <ul>
+				            <li>Active</li>
+				            <li>Movie</li>
+				        </ul>
+				        <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+				    </div>
+					<div class="product-item-gradient">
+				    	<a class="btn btn-danger" href="#"><span class="material-symbols-outlined">file_download</span></a>
+	    			</div>
+    		</div>
+		</div>
+	</div>
+	
+	<!-- Ïù¥ÎØ∏ Îã§Ïö¥ Î∞õÏùÄ Í≤ΩÏö∞ -->
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product__item">
+    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+				<!-- Ïù¥ÎØ∏ÏßÄ ÏÑ†Î™ÖÌïòÍ≤å ÎßåÎì¨ -->
+				<div class="product-item-contrast"></div>
+					<div class="product__item__text">
+						<div id="rating">Rating</div>
+				        <ul>
+				            <li>Active</li>
+				            <li>Movie</li>
+				        </ul>
+				        <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+				    </div>
+				<div class="product-item-gradient">
+				    <h4>Ïù¥ÎØ∏ Îã§Ïö¥Î°úÎìú Îê®</h4>
+	    		</div>	
+    		</div>
+		</div>
+	</div>
+	
 </div>
