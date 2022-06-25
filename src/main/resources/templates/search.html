@@ -125,7 +125,7 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6" th:each="s:${sgame}">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${s.imgname}" href="/detail">
+                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${s.imgname}">
                                     <div class="ep">
                                     	<span class="fa fa-star"></span>
 									</div>
@@ -133,7 +133,8 @@ $(document).ready(function(){
                                     <div class="view" th:text="'&#8361; ' + ${s.price}"></div>
                                 </div>
                                 <div class="product__item__text">
-                                    <h5 id="sgame" th:text="${s.name}"><a href="/detail">game name</a></h5>
+                                    <h5 id="sgame" th:text="${s.name}"><a th:text="${p.name}" href="@{detail(id=${p.id)">game name</a></h5>
+                                    
                                 </div>
                             </div>
                         </div>

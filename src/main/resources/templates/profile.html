@@ -49,13 +49,13 @@
                 <div class="login__form">
                     <h3>프로필 수정</h3>
                     <form id="signup_form" action="#">
+                    	<div class="input__item">
+                            <input id="id" name="id" value="id" type="#" readonly="readonly" placeholder="ID">
+                            <span class="icon_id"></span>
+                        </div>
                         <div class="input__item">
                             <input id="name" name="name" value="name" type="text" placeholder="Your Name">
                             <span class="icon_profile"></span>
-                        </div>
-                    	<div class="input__item">
-                            <input id="id" name="id" value="id" type="text" placeholder="ID">
-                            <span class="icon_id"></span>
                         </div>
                         <div class="input__item">
                             <input id="pwd" name="pwd" value="pwd" type="password" placeholder="Password">
@@ -69,7 +69,10 @@
                             <input id="phone" name="phone" value="phone" type="text" placeholder="Phone Number">
                             <span class="icon_phone"></span>
                         </div>
-                        <button id="signup_btn" type="submit" class="site-btn">업데이트</button>
+                        <button id="signup_btn" type="submit" class="site-btn">수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 						<input type="button" class="site-btn" value="취소" onclick="history.back(1)">
+                        
                     </form>
                 </div>
             </div>

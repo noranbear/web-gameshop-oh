@@ -42,6 +42,8 @@ public class MainController {
 	@Autowired
 	ProductBiz pbiz;
 	
+	
+	
 	@RequestMapping("/")
 	public String main() {
 		return "index";
@@ -130,10 +132,21 @@ public class MainController {
 	}
 	
 	@RequestMapping("/detail")
-	public String detail(Model m) {
-		m.addAttribute("center", "detail");
-		return "/index";
-	}
+    public String detail(Model m, int id) {
+        ProductVO obj = null;
+        
+        try {
+            obj = pbiz.get(id);
+            m.addAttribute("dp", obj);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        m.addAttribute("center", "detail");
+        return "/index";
+    }
+	
+	
 	
 	
 	/*
