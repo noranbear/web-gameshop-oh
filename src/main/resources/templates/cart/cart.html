@@ -1,167 +1,19 @@
 <meta charset="UTF-8">
 <!-- Version: 1.0 -->
 <!--
---------------------------------------------------------------------------
-	Date			 Author						Note
---------------------------------------------------------------------------
-2022. 06. 23		noranbear  			Cart 페이지 생성 및 디자인 수정
-2022. 06. 24							cart 카드
---------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+	Date			 Author								Note
+------------------------------------------------------------------------------------
+2022. 06. 23		noranbear  					페이지 생성 및 디자인 수정
+2022. 06. 24									  카드 디자인 구현 완료
+2022. 06. 25									 ask박스 디자인 구현 완료
+------------------------------------------------------------------------------------
 -->
 
-<style>
-.product__sidebar__view__item {
-	border: 2px solid rgba(255, 255, 255, 0.2);
-	background-color: #07081f;
-}
+<link rel="stylesheet" href="ourcss/cart-style.css" type="text/css">
 
-.product__sidebar__view__item h4 {
-	padding: 40px 40px;
-	font-weight: bold;
-	color: #a1a3cc;
-	/*text-shadow: 2px 2px 2px slategrey;*/
-	display: inline-block;
-	
-}
-
-.product__sidebar__view__item p {
-	padding: 10px 40px;
-	font-size: small;
-	color: #a1a3cc;
-}
-
-#price {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-	padding: 0 0 0 100px;
-	font-size: large;
-	font-weight: 400;
-	color: #a1a3cc;
-	text-align: right;
-	margin: 0 auto;
-	
-}
-.product__sidebar__view__item > p > a {
-	float: right;
-	color: white;
-}
-
-/* [2] box card css */
-.product__item__pic {
-	border-radius: 8px;
-	box-shadow: 10px 20px 35px rgba(0,0,0,0.7);
-	overflow: hidden;
-	transition: 0.5s;
-	
-}
-.product__item__pic:hover {
-	transform:scale(1.05);
-}
-.product-item-contrast {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	backdrop-filter: contrast(120%);
-}
-.product-item-gradient {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	/*background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));*/
-	opacity: 0;
-	transition: 0.7s;
-	
-	/*background: rgba(255,255,255,0.1);*/
-	background: rgba(40,40,40,0.3);
-	border-top: 1px solid rgba(255,255,255,0.5);
-	border-left: 1px solid rgba(255,255,255,0.5);
-	backdrop-filter: blur(10px);
-	
-}
-.product-item-gradient:hover {
-	opacity: 100;
-}
-.text-wrap{
-	position: relative;
-	bottom: 0;
-	padding: 20px;
-}
-.text-wrap h4 {
-	font-size: small;
-	font-weight: 400;
-	margin-bottom: 10px;
-	color: white;
-	text-shadow: 2px 2px 2px slategrey;
-}
-.text-wrap p {
-	font-size: 12px;
-	margin: 0;
-	color: lightgrey;
-}
-/* [2] box card css ends --------------*/
-
-/* [3] 카트에서 없애기 버튼 */
-#x_bt {
-	border: none;
-	font-weight: bold;
-}
-
-#x_bt:hover {
-	background: #f21b1c;
-}
-/* [3] Ends -------------------------*/
-
-/* [4] 카드 제목 */
-/* (1) Image with Transparent Text (From w3school)*/
-.product__item__text {
-	position: absolute; 				/* Position the background text */
-	bottom: 0; 							/* At the bottom. Use top:0 to append it to the top */
-	background: rgb(0, 0, 0); 			/* Fallback color */
-	background: rgba(0, 0, 0, 0.5); 	/* Black background with 0.5 opacity */
-	color: #f1f1f1; 					/* Grey text */
-	width: 100%;						/* Full width */
-	padding: 0 15px; 					/* Some padding */
-}
-/* (1) Ends */
-
-/* (2) 디테일 구현 */
-.product__item__text h5 {
-	font-size: 14px;
-	font-weight: 400;
-	color: white;
-}
-
-.product__item__text {
-	padding-top: 10px;
-}
-
-.product__item__text ul {
-	margin-bottom: 5px;
-}
-
-.product__item__text ul li {
-	font-weight: 500;
-	background: rgba(255, 255, 255, 0.3);
-}
-
-/* 가격 */
-#cart_price {
-	color: white;
-	font-size: 12px;
-	font-weight: bold;
-	margin: 5px 0px;
-	padding: 0px 20px;
-	float: right;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 5px;
-}
-/* (2) Ends */
-/* [4] Ends -------------------*/
-</style>
-
+<script>
+</script>
 
 <!-- Product Section Begin -->
 <section class="product-page spad">
@@ -179,14 +31,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div id="thePd" class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/popular/popular-1.jpg">
-									<!-- x_bt 호버를 위한 div -->
-									<div class="product-item-for-x_bt"></div>
+
+									<!-- 이미지 선명하게 만듬 -->
 									<div class="product-item-contrast"></div>
                                 	<!-- 카트에서 없애기 버튼 -->
-                                    <button id="x_bt" type="button" class="ep">X</button>
+                                   	<button id="x_bt" type="button" class="ep">X</button>
                                 	<div class="product__item__text">
 	                                    <ul>
 	                                        <li>Active</li>
@@ -199,24 +51,6 @@
                                 
                             </div>
                         </div>
-                        <!-- box card css 가져온 거 -->
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-						    <div class="product__item">
-						        <div class="product__item__pic set-bg" data-setbg="img/popular/strange.jpg">
-						        	<div class="product-item-contrast"></div>
-						        	<div class="product-item-gradient">
-							        	<div class="text-wrap">
-							        		<h4>Doctor Strange</h4>
-							        		<br><br><br><br><br><br>
-							        		<p>TIME PLAYED</p>
-							        		<p>Last two weeks: 0 min</p>
-							        		<p>Total: 25 hrs</p>
-							        	</div>
-						        	</div>
-						        </div>
-						    </div>
-						</div>
-						<!-- Box card ends -->
                     </div>
                 </div>
                <!-- 필요없을 것 같으니 이따 지우자. -->
@@ -236,20 +70,25 @@
                         <div class="section-title">
                             <h5>Total</h5>
                         </div>
-                        <div class="filter__gallery">
-                            <div class="product__sidebar__view__item">
-                            <h4>Total</h4>
-                            <h4 id="price">$1000</h4>
-                            <p>결제를 진행하시겠습니까?
-                            	<a class="btn btn-danger" href="/payment">다음</a>
-                            </p>
-                        	</div>
-    					</div>
-					</div>
-    
+                        
+                        <!-- 카트 ask박스 -->
+                        <div class="c_container">
+						    <h4>Cart
+						      <span class="price" style="color:#a1a3cc">
+						        <i class="fa fa-shopping-cart"></i>
+						        <b>4</b>
+						      </span>
+						    </h4>
+						    <hr id="t_hr">
+						    <p id="total_p">Total <span class="price" style="color:#a1a3cc"><b>$30</b></span></p>
+						    <a class="btn btn-danger" href="/payment">다음</a>
+						</div>
+						<!-- 카트 ask박스 Ends -->
+						
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
 <!-- Product Section End -->
