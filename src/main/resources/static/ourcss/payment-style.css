@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+/******************************************************************
+  Description: edited bootstrap css collection
+  Created: noranbear
+  Reference URI: https://www.w3schools.com/howto/default.asp
+  Version: 1.0
+******************************************************************/
+
+/* Checkbox */
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.top {
+	 margin-top: 20px;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.p_container {
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: #07081f;
+  color: #a1a3cc;
+}
+
+.p_container h4, p {
+	color: #a1a3cc;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #e53637;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #f21b1c;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+  
+}
+
+#consent {
+	font-size: small;
+}
+
+#cart_container {
+	padding-top: 20px;
+}
+
+#cart_container > h4 {
+	margin-bottom: 10px;
+}
+
+#c_price {
+	color: #a1a3cc;
+}
+
+#tprice {
+	font-size: 30px;
+	color: #a1a3cc;
+	border-bottom: 1px solid #a1a3cc;
+	float: right;
+	
+}
+
+/* 결제방법 */
+
+#pm_label {
+	color: #a1a3cc;
+}
+
+.bottom {
+	margin-bottom: 20px;
+}
+
+/* From w3school */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+/* -------------------------------- */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+/* Snackbar Ends -------------------------*/
+

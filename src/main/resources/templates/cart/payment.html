@@ -1,0 +1,122 @@
+<meta charset="UTF-8">
+<!-- Version: 1.0 -->
+<!--
+--------------------------------------------------------------------------
+	Date			 Author						Note
+--------------------------------------------------------------------------
+2022. 06. 23		noranbear  		 payment 페이지 생성 및 디자인 수정
+
+--------------------------------------------------------------------------
+-->
+
+<link rel="stylesheet" href="ourcss/payment-style.css" type="text/css">
+
+<script>
+// 결제 버튼 snackbar
+function myFunction() {
+	// Get the snackbar DIV
+	var x = document.getElementById("snackbar");
+	
+	// Add the "show" class to DIV
+	x.className = "show";
+	
+	// After 3 seconds, remove the show class from DIV
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
+	// snackbar가 내려가고 나서 구매목록으로 자동 direct
+}
+</script>
+
+
+<section class="product-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product__page__content">
+                    <div class="product__page__title">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-6">
+                                <div class="section-title">
+                                    <h4>Payment</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- 결제 방법 -->
+					<div class="row">
+						<div class="col-75 bottom">
+							<div class ="container">
+								
+								<label for="pmethod" id="pm_label">결제방법</label>
+									
+								<select id="pmethod" name="pmethod">
+									<option value="card">신용/체크카드</option>
+									<option value="account">계좌이체</option>
+									<option value="toss">토스페이</option>
+									<option value="ppay">휴대폰</option>
+									<option value="vaccount">무통장입금</option>
+								</select>
+								<h3 id="tprice">결제금액: $100000</h3>
+							</div>
+						</div>
+					</div>
+	    				
+                	<!-- checkout -->
+					<div class="row">
+  						<div class="col-75">
+    						<div class="p_container">
+      							<form action="/action_page.php">
+      
+       							 <div class="row">
+          							<div class="col-50 top">
+            							<label for="name"><i class="fa fa-user"></i> 성명</label>
+           	 							<input type="text" id="name" name="name" value="name" placeholder="이름">
+            							<label for="email"><i class="fa fa-envelope"></i> 이메일</label>
+           								<input type="text" id="email" name="email" value="email" placeholder="이메일">
+										<label for="expmonth">만료월</label>
+					            		<input type="text" id="expmonth" name="expmonth" placeholder="월">
+          							</div>
+
+	          						<div class="col-50 top">
+	           							<label for="fname">사용가능한 카드</label>
+	            						<div class="icon-container">
+	             							<i class="fa fa-cc-visa" style="color:navy;"></i>
+	              							<i class="fa fa-cc-amex" style="color:blue;"></i>
+								            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+								            <i class="fa fa-cc-discover" style="color:orange;"></i>
+            						</div>   
+						            <label for="cnum">카드번호</label>
+						            <input type="text" id="cnum" name="cardnumber" placeholder="카드번호">
+					            
+						            <div class="row">
+	              						<div class="col-50">
+	                						<label for="expyear">만료연도</label>
+	                						<input type="text" id="expyear" name="expyear" placeholder="연도">
+							            </div>
+							            <div class="col-50">
+							                <label for="cvv">CVV</label>
+							                <input type="text" id="cvv" name="cvv" placeholder="CVV">
+	              						</div>
+	            					</div>
+          						</div>
+          
+        					</div>
+        					<label id="consent">
+	          					<input type="checkbox" name="cbox"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
+	        				</label>
+	        				<!-- Use a button to open the snackbar -->
+	        				<input onclick="myFunction()" class="btn btn-danger" value="결제하기">
+	      					<!-- The actual snackbar -->
+							<div id="snackbar">결제가 완료되었습니다.</div>
+	      				</form>
+	    			</div>
+	  			</div>
+	  			
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</section>
