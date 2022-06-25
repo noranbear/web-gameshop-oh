@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.multi.biz.ImageBiz;
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
 import com.multi.vo.ProductVO;
