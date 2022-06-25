@@ -20,6 +20,7 @@ import com.multi.vo.ProductVO;
  *  2022. 6. 20.		 qwaszx357		   First creation
  *  2022. 6. 22.		 qwaszx357		   getaction add
  *  2022. 6. 24.		 qwaszx357		  	  RPG add
+ *  										search add
  *  
  * =========================================================
  */
@@ -54,5 +55,10 @@ public interface ProductMapper {
 	public List<ProductVO> getsports1() throws Exception;
 	public List<ProductVO> getsports2() throws Exception;
 	public List<ProductVO> getsports3() throws Exception;
+	
+	// Search
+	public List<ProductVO> search1(String txt) throws Exception;
+	public List<ProductVO> search2(String txt) throws Exception;
+	public List<ProductVO> search3(String txt) throws Exception;
 
 }

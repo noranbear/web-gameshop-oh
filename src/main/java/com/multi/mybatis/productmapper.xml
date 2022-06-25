@@ -94,5 +94,22 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=33 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
-
+	
+	<!-- search  -->
+	<select id="search1" parameterType="String" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.name;
+	</select>
+	<select id="search2" parameterType="String" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.price;
+	</select>
+	<select id="search3" parameterType="String" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.reldate;
+	</select>
+	
 </mapper>
