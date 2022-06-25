@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-<!-- Version: 5.1 -->
+<!-- Version: 5.2 -->
 <!--
 --------------------------------------------------------------------------
 	Date			Author						Note
@@ -10,10 +10,12 @@
 											footer index
 									header index 및 dropdown 디자인 수정
 										profile dropdown 구현 v1
+										
 2022. 06. 24      qwaszx357     			Icon CSS 추가
-                              search 페이지 연결 및 modal 삭제
+                              		search 페이지 연결 및 modal 삭제
+                              		
 2022. 06. 25	  noranbear				header library 링크 수정
-
+									footer와 pagination margin-top 수정
 --------------------------------------------------------------------------
 -->
 <head>
@@ -112,6 +114,16 @@ rel="stylesheet">
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* footer와 center page 간격 넓히기 */
+.footer {
+	margin-top: 30px;
+}
+
+/* pagination과 product 카드 간격 넓히기 */
+.product__pagination {
+	margin-top: 50px;
+} 
 </style>
 
 </head>

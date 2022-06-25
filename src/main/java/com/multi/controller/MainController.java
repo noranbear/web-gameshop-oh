@@ -17,7 +17,7 @@ import com.multi.vo.UserVO;
 /**
  * @author noranbear
  * @date 2022. 6. 21.
- * @version 3.0
+ * @version 4.0
  * @description
  *
  *
@@ -26,11 +26,14 @@ import com.multi.vo.UserVO;
  * --------------------------------------------------------------------
  *  2022. 06. 21.		noranbear		        First Creation
  *									     Adding box controller methods
- *  2022. 06. 21.		qwaszx357		   		loginlmpl add
- *  2022. 06. 21.		        		   		signuplmpl add
- *  2022. 6. 24.		qwaszx357				Search add
- *	2022. 06. 25.		noranbear			 box controllers 수정
  *
+ *  					qwaszx357		   		loginlmpl add
+ *  					        		   		signuplmpl add
+ *  
+ *  2022. 06. 24.		qwaszx357				 Search add
+ *  
+ *	2022. 06. 25.		noranbear			 	 box 연결 수정
+ *												 nobox 추가
  * ====================================================================
  */
 @Controller
@@ -167,6 +170,14 @@ public class MainController {
 	public String allgame(Model m) {
 		m.addAttribute("center", "box/bmain");
 		m.addAttribute("bcenter", "box/allgame");
+		return "/index";
+	}
+	
+	// 로그인 안 했을 때의 Library 화면
+	@RequestMapping("/nobox")
+	public String nobox(Model m) {
+		m.addAttribute("center", "box/bmain");
+		m.addAttribute("bcenter", "box/nobox");
 		return "/index";
 	}
 	

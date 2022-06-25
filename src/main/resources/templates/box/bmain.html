@@ -1,7 +1,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 
-<!-- Version: 2.1 -->
+<!-- Version: 2.2 -->
 <!--
 ----------------------------------------------------------------------
 	Date			  Author				Note
@@ -9,6 +9,7 @@
 2022. 06. 21		noranbear  			First Creation
 2022. 06. 25							 header 수정
 								center 페이지 div에서 "row" class 삭제
+										pagination 주석화
 ----------------------------------------------------------------------
 -->
 
@@ -31,6 +32,11 @@
 	height: 0;
 	width: 0;
 }
+
+/* pagination 자동화할 때 풀기 
+.product__pagination {
+	margin-top: 50px;
+} */
 </style>
 
 <!-- Product Section Begin -->
@@ -52,6 +58,7 @@
 	              
 	        </div>
 	    </div>
+	    <!-- pagination 자동화를 할 때 사용 가능
 	    <div class="product__pagination">
 	        <a href="#" class="current-page">1</a>
 	        <a href="#">2</a>
@@ -60,6 +67,7 @@
 	        <a href="#">5</a>
 	        <a href="#"><i class="fa fa-angle-double-right"></i></a>
 	    </div>
+	     -->
 	</div>
 </section>
 <!-- Product Section End -->
