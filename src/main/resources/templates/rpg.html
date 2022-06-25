@@ -97,7 +97,7 @@
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
                                 </div>
                                 <div class="product__item__text">
-									<h5 id="gname" th:text="${p.name}"><a href="#">Game Name</a></h5>
+									<a href="" th:text="${p.name}" th:href="@{detail(id=${p.id})}"></a>
                                 </div>
                             </div>
                         </div>

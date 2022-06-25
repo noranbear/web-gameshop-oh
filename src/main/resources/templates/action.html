@@ -4,51 +4,61 @@
 	Date			Author					Note
 ---------------------------------------------------------------
 2022. 06. 22	  qwaszx357  		Action category page
-
+2022. 06. 25	  najune			detail page add
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
 <style>
 #gname, #ngname, #ngdate {
 	color: white
 }
-
-#new_img {
-	width: 500px;
-	height: 200px;
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
-/* price box custom */
-.product__item__pic .view {
-    font-size: 20px;
-    font-color: white;
-    color: #ffffff;
-    background: black;             /* Fallback color */
-	background: rgba(0, 0, 0, 1);     /* Black background with 0.5 opacity */
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 4px;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    /*#e53637 or slategrey*/
-    
+.pagination a.active {
+  background: white;
+  color: black;
+  border-radius: 100%;
 }
 
-.product__item__pic .comment {
-	font-size: 13px;
-	color: #ffffff;
-	background: black;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	bottom: 10px;
+.pagination a:hover:not(.active) {
+	border: 20%;
 }
+
+
+
 </style>
+
+<script>
+let totalData; //총 데이터 수
+let dataPerPage; //한 페이지에 나타낼 글 수
+let pageCount = 10; //페이징에 나타낼 페이지 수
+let globalCurrentPage=1; //현재 페이지
+
+$(document).ready(function () {
+ //dataPerPage 선택값 가져오기
+ dataPerPage = $("#actiongame").val();
+ 
+ $.ajax({ // ajax로 데이터 가져오기
+	url: '/next',
+	data: {n:num},
+	success: function (data) {
+	   //totalData 구하기
+	   totalData = data.data.length;
+	}
+ });
+ 
+ //글 목록 표시 호출 (테이블 생성)
+ displayData(1, dataPerPage);
+ 
+ //페이징 표시 호출
+ paging(totalData, dataPerPage, pageCount, 1);
+});
+</script>
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
@@ -87,17 +97,18 @@
                         </div>
                     </div>
                     <div class="row">
+
                         <div class="col-lg-4 col-md-6 col-sm-6" th:each="p:${plist}">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                                     <div class="ep">
-                                    	<span class="fa fa-star"></span>
+                                    	<span class="fa fa-star" th:text="' ' + ${p.star} + ' / 5'"></span>
                                     </div>
                                     <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
                                 </div>
                                 <div class="product__item__text">
-									<h5 id="gname" th:text="${p.name}"><a href="#">Game Name</a></h5>
+									<a href="" th:text="${p.name}" th:href="@{detail(id=${p.id})}"></a>
                                 </div>
                             </div>
                         </div>
@@ -113,9 +124,9 @@
                     <a href="#"><i class="fa fa-angle-double-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-8">
-                <div class="product__sidebar">
-                       <div class="product__sidebar__view">
+           <div class="col-lg-4 col-md-6 col-sm-8">
+               <div class="product__sidebar">
+                      <div class="product__sidebar__view">
                             <div class="section-title">
                                 <h5>Top played</h5>
                             </div>
@@ -125,7 +136,7 @@
                                 <li data-filter=".price">month</li>
                                 <li data-filter=".reldate">year</li>
                             </ul>
-						<div class="filter__gallery">
+						<div class="filter__gallery" th:each="p:${plist}">
 							<div class="product__sidebar__view__item set-bg mix day reldate"
 								data-setbg="img/all/battlefield_v_1.png">
 								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
@@ -155,11 +166,12 @@
 			            <h5>New</h5>
 			        </div>
 			        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
-				       <div class="filter__gallery">
-	                        <div class="product__sidebar__view__item set-bg mix day years"
-	                        th:attr="data-setbg='img/all/'+${np.imgname}">
-	                        <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
-	                        <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
+				            
+				            <div class="filter__gallery">
+	                           <div class="product__sidebar__view__item set-bg mix day years"
+	                           th:attr="data-setbg='img/all/'+${np.imgname}">
+	                           <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
+	                           <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
 				            </div>
 				        </div>
 				    </div>

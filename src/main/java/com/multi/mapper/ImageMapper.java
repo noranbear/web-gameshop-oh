@@ -26,9 +26,9 @@ import com.multi.vo.ImageVO;
 public interface ImageMapper {
 	
 	public void insert(ImageVO i) throws Exception;
-	public void delete(int id) throws Exception;
+	public void delete(int sid) throws Exception;
 	public void update(ImageVO i) throws Exception;
 	
-	public ImageVO select(int id) throws Exception;
+	public ImageVO select(int sid) throws Exception;
 	public List <ImageVO> selectall() throws Exception;
 }

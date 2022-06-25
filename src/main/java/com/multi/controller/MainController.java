@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.multi.biz.ImageBiz;
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
 import com.multi.vo.ProductVO;
@@ -40,6 +41,9 @@ public class MainController {
 	
 	@Autowired
 	ProductBiz pbiz;
+	
+	@Autowired
+	ImageBiz ibiz;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -129,10 +133,21 @@ public class MainController {
 	}
 	
 	@RequestMapping("/detail")
-	public String detail(Model m) {
-		m.addAttribute("center", "detail");
-		return "/index";
-	}
+    public String detail(Model m, int id) {
+        ProductVO obj = null;
+        
+        try {
+            obj = pbiz.get(id);
+            m.addAttribute("dp", obj);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        m.addAttribute("center", "detail");
+        return "/index";
+    }
+	
+	
 	
 	
 	/*

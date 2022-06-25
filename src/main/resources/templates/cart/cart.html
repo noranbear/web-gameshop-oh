@@ -16,7 +16,7 @@
 </script>
 
 <!-- Product Section Begin -->
-<section class="product-page spad">
+<section class="product-page spad" >
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -30,10 +30,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" th:each="p:${plist}">
                         <div id="thePd" class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-1.jpg">
+                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
 
 									<!-- 이미지 선명하게 만듬 -->
 									<div class="product-item-contrast"></div>
