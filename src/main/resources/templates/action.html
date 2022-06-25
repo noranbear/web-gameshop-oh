@@ -8,57 +8,19 @@
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <style>
 #gname, #ngname, #ngdate {
 	color: white
 }
-.pagination a {
-  color: white;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
 
-.pagination a.active {
-  background: white;
-  color: black;
-  border-radius: 100%;
-}
-
-.pagination a:hover:not(.active) {
-	border: 20%;
-}
 
 
 
 </style>
 
-<script>
-let totalData; //총 데이터 수
-let dataPerPage; //한 페이지에 나타낼 글 수
-let pageCount = 10; //페이징에 나타낼 페이지 수
-let globalCurrentPage=1; //현재 페이지
 
-$(document).ready(function () {
- //dataPerPage 선택값 가져오기
- dataPerPage = $("#actiongame").val();
- 
- $.ajax({ // ajax로 데이터 가져오기
-	url: '/next',
-	data: {n:num},
-	success: function (data) {
-	   //totalData 구하기
-	   totalData = data.data.length;
-	}
- });
- 
- //글 목록 표시 호출 (테이블 생성)
- displayData(1, dataPerPage);
- 
- //페이징 표시 호출
- paging(totalData, dataPerPage, pageCount, 1);
-});
-</script>
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">

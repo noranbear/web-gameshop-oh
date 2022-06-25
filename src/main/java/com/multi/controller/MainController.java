@@ -42,8 +42,7 @@ public class MainController {
 	@Autowired
 	ProductBiz pbiz;
 	
-	@Autowired
-	ImageBiz ibiz;
+	
 	
 	@RequestMapping("/")
 	public String main() {

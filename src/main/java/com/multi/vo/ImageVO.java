@@ -27,7 +27,7 @@ import lombok.ToString;
 @ToString
 public class ImageVO {
 	
-	private int sid;
+	private int id;
 	private String name;
 	private int pid;
 }
