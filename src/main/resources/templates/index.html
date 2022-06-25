@@ -11,6 +11,7 @@
 									header index 및 dropdown 디자인 수정
 										profile dropdown 구현 v1
 2022. 06. 24    	qwaszx357     			Icon CSS 추가
+									  search 페이지 연결 및 modal 삭제
 --------------------------------------------------------------------------
 -->
 <head>
@@ -164,7 +165,7 @@ rel="stylesheet">
                     <div class="header__right">
                         <ul class="nav navbar-nav navbar-right"> 	
 					      	<li>
-					      	    <a href="#" class="search-switch"><span class="icon_search"></span></a>
+					      	    <a href="/search?txt=" class="search-switch"><span class="icon_search"></span></a>
 					      	    <a href="/login"><span class="icon_profile"></span></a>
 					      	</li>
 					    </ul>
@@ -231,16 +232,6 @@ rel="stylesheet">
   </footer>
   <!-- Footer Section End -->
 
-  <!-- Search model Begin -->
-  <div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch"><i class="icon_close"></i></div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search model end -->
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
