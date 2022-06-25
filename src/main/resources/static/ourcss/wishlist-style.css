@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 /******************************************************************
-  Description: edited bootstrap css collection
+  Description: wishlist.html css
   Created: noranbear
-  Reference URI: [5] https://www.w3schools.com/howto/howto_css_checkout_form.asp
+  Reference URI: 
   Version: 1.0
 ******************************************************************/
 
@@ -28,9 +28,31 @@
 	height: 100%;
 	backdrop-filter: contrast(120%);
 }
-/* [1] Ends --------------*/
 
-/* [2] 카트에서 없애기 버튼 */
+.product-item-gradient {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/*background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));*/
+	opacity: 0;
+	transition: 0.7s;
+	
+	/*background: rgba(255,255,255,0.1);*/
+	background: rgba(40,40,40,0.3);
+	border-top: 1px solid rgba(255,255,255,0.5);
+	border-left: 1px solid rgba(255,255,255,0.5);
+	backdrop-filter: blur(1px);
+	
+}
+
+.product-item-gradient:hover {
+	opacity: 100;
+}
+/* [1] ENDS ------------*/
+
+/* [2] 리스트에서 없애기 버튼 */
 #x_bt {
 	color: white;
 	background: rgba(229, 54, 55, 0.1);
@@ -42,14 +64,36 @@
 #x_bt:hover {
 	background: #c81a1b;
 }
-/* [2] Ends -------------------------*/
+/* [2] ENDS -------------------------*/
 
-/* [3] 카드 제목 */
-/* (1) Image with Transparent Text (From w3school)*/
+
+/* [3] 카트로 추가 버튼 */
+.btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  
+	background-color: #e53637;
+	color: white;
+	padding: 12px 30px;
+	margin: 10px 0;
+	border: none;
+	width: 80%;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 17px;
+}
+/* [3] ENDS -------------------------*/
+
+
+/* [4] 카드 text */
+/* (1) Image with Transparent Text (From w3school) */
 .product__item__text {
 	position: absolute; 				/* Position the background text */
-	bottom: 0; 							/* At the bottom. Use top:0 to append it to the top */
-	background: rgb(0, 0, 0); 		/* Fallback color */
+	bottom: 10px; 						/* At the bottom. Use top:0 to append it to the top */
+	background: rgb(0, 0, 0); 			/* Fallback color */
 	background: rgba(0, 0, 0, 0.5); 	/* Black background with 0.5 opacity */
 	color: #f1f1f1; 					/* Grey text */
 	width: 100%;						/* Full width */
@@ -88,63 +132,12 @@
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 5px;
 }
+/* 별점 */
+#rating {
+	float: right;
+	margin-bottom: 10px;
+	
+}
 /* (2) Ends */
-/* [3] Ends -------------------*/
+/* [4] Ends -------------------*/
 
-/* [4] 카드 total 박스 */
-.c_container {
-  background-color: #07081f;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-.c_container h4 {
-	margin-top: 10px;
-	margin-bottom: 0px;
-	font-weight: bold;
-	color: #a1a3cc;
-}
-
-/* p tag 안 Total */
-#total_p {
-	color: #a1a3cc;
-}
-
-hr {
-	background-color: lightgrey;
-	margin: 20px 0 20px 0;
-
-}
-
-.btn {
-  background-color: #e53637;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-  background-color: #f00;
-}
-
-span.price {
-  float: right;
-  color: #a1a3cc;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
-/* [4] Ends ---------------- */

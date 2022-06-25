@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/******************************************************************
+  Description: edited bootstrap css collection
+  Created: noranbear
+  Reference URI: (2) https://www.w3schools.com/howto/howto_js_snackbar.asp
+  Version: 1.0
+******************************************************************/
+
+.product__item__pic {
+	border-radius: 8px;
+	box-shadow: 10px 20px 35px rgba(0,0,0,0.7);
+	overflow: hidden;
+	transition: 0.5s;
+	
+}
+.product__item__pic:hover {
+	transform:scale(1.05);
+}
+.product-item-contrast {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: contrast(120%);
+}
+.product-item-gradient {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/*background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));*/
+	opacity: 0;
+	transition: 0.7s;
+	
+	/*background: rgba(255,255,255,0.1);*/
+	background: rgba(40,40,40,0.3);
+	border-top: 1px solid rgba(255,255,255,0.5);
+	border-left: 1px solid rgba(255,255,255,0.5);
+	backdrop-filter: blur(10px);
+	
+}
+.product-item-gradient:hover {
+	opacity: 100;
+}
+.text-wrap{
+	position: relative;
+	bottom: 0;
+	padding: 20px;
+}
+.text-wrap h4 {
+	font-weight: 650;
+	margin-bottom: 20px;
+	color: white;
+	text-shadow: 2px 2px 2px slategrey;
+}
+.text-wrap p {
+	font-size: 12px;
+	margin: 0;
+	color: lightgrey;
+}
+
+/* [1] Play button */
+.btn {
+  float: right;
+  background: rgb(229, 54, 55);
+  color: white;
+  padding: 10px 20px;
+  margin: 0 20px;
+  margin-top: 70px;
+  border: none;
+  
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #f00;
+}
+
+/* (1) Play button을 누르면 뜨는 팝업창 */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+/* (1) Ends */
+/* [1] ENDS ---------------------------------- */

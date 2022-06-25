@@ -1,23 +1,35 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
-<!-- Version: 1.0 -->
-<!--
----------------------------------------------------------------
-	Date			  Author				Note
----------------------------------------------------------------
-2022. 06. 21		noranbear  			First Creation
 
----------------------------------------------------------------
+<!-- Version: 2.1 -->
+<!--
+----------------------------------------------------------------------
+	Date			  Author				Note
+----------------------------------------------------------------------
+2022. 06. 21		noranbear  			First Creation
+2022. 06. 25							 header 수정
+								center 페이지 div에서 "row" class 삭제
+----------------------------------------------------------------------
 -->
+
 <style>
-#boxtitle, #wishlist, #allgames{
+/* 헤더 */
+.section-title a {
+	color: #ffffff;
+}
+
+.section-title a:hover {
+	color: slategrey;
+}
+
+.section-title h4, .section-title h5 {
 	display: inline-block;
 }
-#wishlist{
-	margin: 0 0 0 30px;
-}
-#allgames{
-	margin: 0 0 0 5px;
+
+/* 옆에 줄 없애기 */
+.section-title h5:after {
+	height: 0;
+	width: 0;
 }
 </style>
 
@@ -29,14 +41,14 @@
 	            <div class="row">
 	                <div class="col-lg-8 col-md-8 col-sm-6">
 	                    <div class="section-title">
-	                        <h4 id="boxtitle"><a href="/bmain">Library</a></h4>
-	                        <h5 id="wishlist"><a href="/wishlist">Wishlist</a></h5>
-	                        <h5 id="allgames"><a href="/allgame">All Games</a></h5>
+	                        <h4><a href="/box">Library</a></h4>
+	                        <h5><a href="/wishlist">Wishlist</a></h5>
+	                        <h5><a href="/allgame">All Games</a></h5>
 	                    </div>
 	                </div> 
 	            </div>
 	        </div>
-	        <div class="row" th:insert="${bcenter} ? ${bcenter} : bcenter">
+	        <div th:insert="${bcenter} ? ${bcenter} : bcenter">
 	              
 	        </div>
 	    </div>

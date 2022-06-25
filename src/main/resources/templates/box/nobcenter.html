@@ -1,69 +1,14 @@
-<!-- Version: 2.0 -->
+<!-- Version: 1.0 -->
+<meta charset="UTF-8">
 <!--
 ---------------------------------------------------------------
 	Date			 Author					Note
 ---------------------------------------------------------------
-2022. 06. 21		noranbear			First Creation
-2022. 06. 22		  				전반적인 페이지 디자인과 카드효과 구현
+2022. 06. 25		noranbear			First Creation
 
 ---------------------------------------------------------------
 -->
-<style>
-.product__item__pic {
-	border-radius: 8px;
-	box-shadow: 10px 20px 35px rgba(0,0,0,0.7);
-	overflow: hidden;
-	transition: 0.5s;
-	
-}
-.product__item__pic:hover {
-	transform:scale(1.05);
-}
-.product-item-contrast {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	backdrop-filter: contrast(120%);
-}
-.product-item-gradient {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	/*background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));*/
-	opacity: 0;
-	transition: 0.7s;
-	
-	/*background: rgba(255,255,255,0.1);*/
-	background: rgba(40,40,40,0.3);
-	border-top: 1px solid rgba(255,255,255,0.5);
-	border-left: 1px solid rgba(255,255,255,0.5);
-	backdrop-filter: blur(10px);
-	
-}
-.product-item-gradient:hover {
-	opacity: 100;
-}
-.text-wrap{
-	position: relative;
-	bottom: 0;
-	padding: 20px;
-}
-.text-wrap h4 {
-	font-weight: 650;
-	margin-bottom: 10px;
-	color: white;
-	text-shadow: 2px 2px 2px slategrey;
-}
-.text-wrap p {
-	font-size: 12px;
-	margin: 0;
-	color: lightgrey;
-}
-</style>
+
 
 <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="product__item">

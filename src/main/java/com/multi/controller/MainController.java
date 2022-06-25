@@ -17,18 +17,19 @@ import com.multi.vo.UserVO;
 /**
  * @author noranbear
  * @date 2022. 6. 21.
- * @version 1.0
+ * @version 3.0
  * @description
  *
  *
  * ====================================================================
  * 	    DATE			 AUTHOR				        NOTE
  * --------------------------------------------------------------------
- *  2022. 6. 21.		noranbear		        First Creation
+ *  2022. 06. 21.		noranbear		        First Creation
  *									     Adding box controller methods
- *  2022. 6. 21.		qwaszx357		   		loginlmpl add
- *  2022. 6. 21.		        		   		signuplmpl add
+ *  2022. 06. 21.		qwaszx357		   		loginlmpl add
+ *  2022. 06. 21.		        		   		signuplmpl add
  *  2022. 6. 24.		qwaszx357				Search add
+ *	2022. 06. 25.		noranbear			 box controllers 수정
  *
  * ====================================================================
  */
@@ -148,23 +149,24 @@ public class MainController {
 	/*
 	 * box
 	 */
-	@RequestMapping("/bmain")
-	public String bmain(Model m) {
-		m.addAttribute("center", "bmain");
+	@RequestMapping("/box")
+	public String box(Model m) {
+		m.addAttribute("center", "box/bmain");
+		m.addAttribute("bcenter", "box/bcenter");
 		return "/index";
 	}
 	
 	@RequestMapping("/wishlist")
 	public String wishlist(Model m) {
-		m.addAttribute("center", "bmain");
-		m.addAttribute("bcenter", "wishlist");
+		m.addAttribute("center", "box/bmain");
+		m.addAttribute("bcenter", "box/wishlist");
 		return "/index";
 	}
 	
 	@RequestMapping("/allgame")
 	public String allgame(Model m) {
-		m.addAttribute("center", "bmain");
-		m.addAttribute("bcenter", "allgame");
+		m.addAttribute("center", "box/bmain");
+		m.addAttribute("bcenter", "box/allgame");
 		return "/index";
 	}
 	

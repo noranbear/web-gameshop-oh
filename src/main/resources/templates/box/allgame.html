@@ -1,0 +1,95 @@
+<meta charset="UTF-8">
+
+<!-- Version: 2.0 -->
+<!--
+---------------------------------------------------------------
+	Date			 Author					Note
+---------------------------------------------------------------
+2022. 06. 25		noranbear			화면 구현 완료
+									다운로드 snackbar 구현
+---------------------------------------------------------------
+-->
+
+<link rel="stylesheet" href="ourcss/wishlist-style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<style>
+.product__item__text h5 {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 5px;
+}
+
+/* 다운로드 Icon */
+.material-symbols-outlined {
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.btn {
+	border-radius: 100px;
+	padding: 0;
+	width: 50%;
+}
+
+.btn:hover {
+	background: #07081f;
+}
+
+#dspan {
+	float: right;
+	font-size: small;
+	color: grey;
+}
+
+#dh {
+	margin-bottom: 25px;
+}
+
+</style>
+
+
+<div class="row">
+
+	<!-- 다운 안 받은 경우 -->
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product__item">
+    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+				<!-- 이미지 선명하게 만듬 -->
+				<div class="product-item-contrast"></div>
+					<div class="product__item__text">
+						<div id="rating"><span class="fa fa-star"></span>4/5</div>
+				        <ul>
+				            <li>Active</li>
+				            <li>Movie</li>
+				        </ul>
+				        <h5 id="dh"><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+				    </div>
+					<div class="product-item-gradient">
+				    	<a class="btn btn-danger" href="#"><span class="material-symbols-outlined">file_download</span></a>
+	    			</div>
+    		</div>
+		</div>
+	</div>
+	
+	<!-- 이미 다운 받은 경우 -->
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product__item">
+    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+				<!-- 이미지 선명하게 만듬 -->
+				<div class="product-item-contrast"></div>
+					<div class="product__item__text">
+						<div id="rating"><span class="fa fa-star"></span>4/5</div>
+				        <ul>
+				            <li>Active</li>
+				            <li>Movie</li>
+				        </ul>
+				        <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+				        <span id="dspan">다운로드 됨</span>
+				    </div>
+    		</div>
+		</div>
+	</div>
+	
+</div>
+
