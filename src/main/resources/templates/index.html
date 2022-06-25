@@ -10,6 +10,7 @@
 											footer index
 									header index 및 dropdown 디자인 수정
 										profile dropdown 구현 v1
+2022. 06. 24    	qwaszx357     			Icon CSS 추가
 
 --------------------------------------------------------------------------
 -->
@@ -42,6 +43,9 @@ rel="stylesheet">
 
 <!-- Dropdown CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Icon CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
 .footer__nav ul > li > a{
@@ -107,6 +111,7 @@ rel="stylesheet">
   display: block;
 }
 </style>
+
 </head>
 
 <body>
@@ -133,21 +138,21 @@ rel="stylesheet">
                                 <li class="active"><a href="#">Best</a></li>
                                 <li><a href="#">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="/category" id="ctname">Action</a></li>
+                                        <li><a href="/action">Action</a></li>
                                         <hr>
-                                        <li><a href="#">Rougue-Like</a></li>
-                                        <li><a href="#">Arcade & Rhythm</a></li>
-                                        <li><a href="#">Fighting & Martial Arts</a></li>
-                                        <li><a href="/category" id="ctname">RPG</a></li>
+                                        <li><a href="/action1">Rougue-Like</a></li>
+                                        <li><a href="/action2">Arcade & Rhythm</a></li>
+                                        <li><a href="/action3">Fighting & Martial Arts</a></li>
+                                        <li><a href="/rpg">RPG</a></li>
                                         <hr>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Strategy</a></li>
-                                        <li><a href="#">JRPG</a></li>
-                                        <li><a href="/category" id="ctname">Sports</a></li>
+                                        <li><a href="/rpg1">Adventure</a></li>
+                                        <li><a href="/rpg2">Strategy</a></li>
+                                        <li><a href="/rpg3">JRPG</a></li>
+                                        <li><a href="/sports">Sports</a></li>
                                         <hr>
-                                        <li><a href="#">Racing</a></li>
-                                        <li><a href="#">Team Sports</a></li>
-                                        <li><a href="#">Fishing & Hunting</a></li>
+                                        <li><a href="/sports1">Racing</a></li>
+                                        <li><a href="/sports2">Team Sports</a></li>
+                                        <li><a href="/sports3">Fishing & Hunting</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Recommendation</a></li>
@@ -247,7 +252,6 @@ rel="stylesheet">
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-
 
 </body>
 

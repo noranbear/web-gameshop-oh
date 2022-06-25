@@ -1,0 +1,174 @@
+<!-- Version: 1.0 -->
+<!--
+---------------------------------------------------------------
+	Date			Author					Note
+---------------------------------------------------------------
+2022. 06. 24	  qwaszx357  		RPG3 category page
+
+---------------------------------------------------------------
+-->
+<meta charset="UTF-8">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+#gname, #ngname, #ngdate {
+	color: white
+}
+#new_img {
+	width: 500px;
+	height: 200px;
+}
+
+/* price box custom */
+.product__item__pic .view {
+    font-size: 20px;
+    font-color: white;
+    color: #ffffff;
+    background: black;             /* Fallback color */
+	background: rgba(0, 0, 0, 1);     /* Black background with 0.5 opacity */
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    /*#e53637 or slategrey*/
+    
+}
+
+.product__item__pic .comment {
+	font-size: 13px;
+	color: #ffffff;
+	background: black;
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 4px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+</style>
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="/category">Categories</a>
+                    <a href="/action">Rpg</a>
+                    <span>JRPG </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Product Section Begin -->
+<section class="product-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="product__page__content">
+                    <div class="product__page__title">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-6">
+                                <div class="section-title">
+                                    <h4>JRPG </h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="product__page__filter">
+                                    <p>Order by: A-Z</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6" th:each="p:${plist}">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
+                                    <div class="ep">
+										<span class="fa fa-star"></span>
+                                    </div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5 id="gname" th:text="${p.name}"><a href="#">Game Name</a></h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product__pagination">
+                    <a href="#" class="current-page">1</a>
+                    <a href="#" >2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#"><i class="fa fa-angle-double-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="product__sidebar">
+                    <div class="product__sidebar__view">
+                            <div class="section-title">
+                                <h5>Top played</h5>
+                            </div>
+                            <ul class="filter__controls">
+                                <li class="active" data-filter="*">Day</li>
+                                <li data-filter=".name">week</li>
+                                <li data-filter=".price">month</li>
+                                <li data-filter=".reldate">year</li>
+                            </ul>
+						<div class="filter__gallery">
+							<div class="product__sidebar__view__item set-bg mix day reldate"
+								data-setbg="img/all/battlefield_v_1.png">
+								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+								<h5><a href="#">battlefield</a></h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix name price"
+								data-setbg="img/all/eternal_edge1.jpg">
+								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+								<h5><a href="#">eternal</a></h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix reldate name"
+								data-setbg="img/all/destiny_1.png">
+								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+								<h5><a href="#">destiny</a></h5>
+							</div>
+
+							<div class="product__sidebar__view__item set-bg mix name day"
+								data-setbg="img/all/golf_gang_1.jpg">
+								<div class="view"><i class="fa fa-circle-down"></i> 6578</div>
+								<h5><a href="#">golf_gang</a></h5>
+							</div>
+						</div>
+
+					</div>
+				    <div class="product__sidebar__comment">
+				        <div class="section-title">
+				            <h5>New</h5>
+				        </div>
+				        <div class="product__sidebar__comment__item"  th:each="np:${nplist}">
+				            <div class="filter__gallery">
+	                           <div class="product__sidebar__view__item set-bg mix day years"
+	                           th:attr="data-setbg='img/all/'+${np.imgname}">
+	                           <div class="view"><span th:text="${np.reldate}"><i class="fa fa-calender-days"></i>00</span></div>
+	                           <h5 id="ngname" th:text="${np.name}"><a href="#"></a></h5>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+<!-- Product Section End -->

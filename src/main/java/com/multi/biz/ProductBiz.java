@@ -20,6 +20,8 @@ import com.multi.vo.ProductVO;
  * 	    DATE			   AUTHOR				NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357			First creation
+ *  2022. 6. 22.		 qwaszx357		    getaction add
+ *  2022. 6. 24.		 qwaszx357		  	  RPG add
  *  
  * =========================================================
  */
@@ -52,6 +54,62 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 	@Override
 	public List<ProductVO> get() throws Exception {
 		return dao.selectall();
+	}
+	
+	// New
+	public List<ProductVO> newgame() throws Exception {
+		return dao.newgame();
+	}
+	
+	// Action
+	public List<ProductVO> getaction() throws Exception {
+		return dao.getaction();
+	}
+	
+	public List<ProductVO> getaction1() throws Exception {
+		return dao.getaction1();
+	}
+	
+	public List<ProductVO> getaction2() throws Exception {
+		return dao.getaction2();
+	}
+	
+	public List<ProductVO> getaction3() throws Exception {
+		return dao.getaction3();
+	}
+
+	// RPG
+	public List<ProductVO> getrpg() throws Exception {
+		return dao.getrpg();
+	}
+	
+	public List<ProductVO> getrpg1() throws Exception {
+		return dao.getrpg1();
+	}
+	
+	public List<ProductVO> getrpg2() throws Exception {
+		return dao.getrpg2();
+	}
+	
+	public List<ProductVO> getrpg3() throws Exception {
+		return dao.getrpg3();
+	}
+	
+	// Sports
+	public List<ProductVO> getsports() throws Exception {
+		return dao.getsports();
+	}
+	
+	public List<ProductVO> getsports1() throws Exception {
+		return dao.getsports1();
+	}
+	
+	public List<ProductVO> getsports2() throws Exception {
+		return dao.getsports2();
+	}
+	
+	public List<ProductVO> getsports3() throws Exception {
+		return dao.getsports3();
 	}
 
 }

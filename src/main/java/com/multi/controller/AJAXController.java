@@ -26,7 +26,7 @@ public class AJAXController {
 
 	@Autowired
 	UserBiz ubiz;
-	
+
 	// ID 중복 확인
 	@RequestMapping("/checkid")
 	public String checkid(String id) {
@@ -48,4 +48,5 @@ public class AJAXController {
 		}
 		return result;
 	}
+
 }
