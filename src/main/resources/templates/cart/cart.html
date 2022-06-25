@@ -1,0 +1,94 @@
+<meta charset="UTF-8">
+<!-- Version: 1.0 -->
+<!--
+------------------------------------------------------------------------------------
+	Date			 Author								Note
+------------------------------------------------------------------------------------
+2022. 06. 23		noranbear  					페이지 생성 및 디자인 수정
+2022. 06. 24									  카드 디자인 구현 완료
+2022. 06. 25									 ask박스 디자인 구현 완료
+------------------------------------------------------------------------------------
+-->
+
+<link rel="stylesheet" href="ourcss/cart-style.css" type="text/css">
+
+<script>
+</script>
+
+<!-- Product Section Begin -->
+<section class="product-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="product__page__content">
+                    <div class="product__page__title">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-6">
+                                <div class="section-title">
+                                    <h4>Cart</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="thePd" class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-1.jpg">
+
+									<!-- 이미지 선명하게 만듬 -->
+									<div class="product-item-contrast"></div>
+                                	<!-- 카트에서 없애기 버튼 -->
+                                   	<button id="x_bt" type="button" class="ep">X</button>
+                                	<div class="product__item__text">
+	                                    <ul>
+	                                        <li>Active</li>
+	                                        <li>Movie</li>
+	                                    </ul>
+	                                    <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+	                                    <div id="cart_price">&#8361; 1000</div>
+                                	</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!-- 필요없을 것 같으니 이따 지우자. -->
+               <div class="product__pagination">
+                   <a href="#" class="current-page">1</a>
+                   <a href="#">2</a>
+                   <a href="#">3</a>
+                   <a href="#">4</a>
+                   <a href="#">5</a>
+                   <a href="#"><i class="fa fa-angle-double-right"></i></a>
+               </div>
+            </div>
+            <!-- price box -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="product__sidebar">
+                    <div class="product__sidebar__view">
+                        <div class="section-title">
+                            <h5>Total</h5>
+                        </div>
+                        
+                        <!-- 카트 ask박스 -->
+                        <div class="c_container">
+						    <h4>Cart
+						      <span class="price" style="color:#a1a3cc">
+						        <i class="fa fa-shopping-cart"></i>
+						        <b>4</b>
+						      </span>
+						    </h4>
+						    <hr id="t_hr">
+						    <p id="total_p">Total <span class="price" style="color:#a1a3cc"><b>$30</b></span></p>
+						    <a class="btn btn-danger" href="/payment">다음</a>
+						</div>
+						<!-- 카트 ask박스 Ends -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Product Section End -->
