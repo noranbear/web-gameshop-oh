@@ -53,6 +53,10 @@ public class UserBiz implements Biz<Integer, UserVO>  {
 		return dao.selectall();
 	}
 	
+	public List<UserVO> profile() throws Exception {
+		return dao.profile();
+	}
+	
 	public UserVO getid(String k) throws Exception {
 		return dao.selectid(k);
 	} 

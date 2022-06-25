@@ -4,21 +4,41 @@
 --------------------------------------------------------------------------
 	Date			 Author						Note
 --------------------------------------------------------------------------
-2022. 06. 22		noranbear  				
+2022. 06. 22		noranbear  				  Page 수정
+2022. 06. 23						      input 중앙으로 옮기기
+										페이지 구현 완료 (세로선 없앰)
+2022. 06. 25		najune				id는 수정못하고 취소버튼 추										
 --------------------------------------------------------------------------
 -->
 <style>
+/* input 가운데로 옮기기 */
 .login__form {
 	padding-left: 0;
 	width: 300px;
 	margin: 0 auto;
 }
-
+/* 반응형 유지 */
 .login__form form .input__item{
 	width: 300px;
 }
+/* 세로 선 없애기 */
+.login__form:after {
+	width: 0px;
+}
 </style>
 <script>
+
+$(document).ready(function(){
+	$('#updatebtn').click(function(){
+		$('.user').attr({
+			'method':'post',
+			'action':'update' 
+		});
+		$('.user').submit();
+	});
+});
+
+
 </script>
 
 <!-- Normal Breadcrumb Begin -->
@@ -41,28 +61,36 @@
             <div id=d class="col-lg-12">
                 <div class="login__form">
                     <h3>프로필 수정</h3>
-                    <form id="signup_form" action="#">
+                    <form id="update_form" action="#">
+                    
+                    	<div class="input__item">
+                            <input id="id" name="id" value="id" readonly="readonly" type="text" placeholder="ID">
+                            <span class="icon_id"></span>
+                        </div>
+                        
                         <div class="input__item">
                             <input id="name" name="name" value="name" type="text" placeholder="Your Name">
                             <span class="icon_profile"></span>
                         </div>
-                    	<div class="input__item">
-                            <input id="id" name="id" value="id" type="text" placeholder="ID">
-                            <span class="icon_id"></span>
-                        </div>
+                
                         <div class="input__item">
                             <input id="pwd" name="pwd" value="pwd" type="password" placeholder="Password">
                             <span class="icon_lock"></span>
                         </div>
+                        
                         <div class="input__item">
                             <input id="mail" name="email" value="email" type="email" placeholder="Email address">
                             <span class="icon_mail"></span>
                         </div>
+                        
                         <div class="input__item">
                             <input id="phone" name="phone" value="phone" type="text" placeholder="Phone Number">
                             <span class="icon_phone"></span>
                         </div>
-                        <button id="signup_btn" type="submit" class="site-btn">업데이트</button>
+                        <button id="updatebtn" href="#" type="submit" class="site-btn">수정</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+​ 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" class="site-btn" value="취소" onclick="history.back(1)">
                     </form>
                 </div>
             </div>

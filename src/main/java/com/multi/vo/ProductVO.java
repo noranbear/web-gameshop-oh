@@ -1,5 +1,7 @@
 package com.multi.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +40,7 @@ public class ProductVO {
 	private int ctid;
 	
 	private String imgname;
-	private int star;
+	private MultipartFile mf;
 	
 	// Constructor for insert, update
 	public ProductVO(int id, String name, int price, String bite, String dev, String reldate, int ctid) {

@@ -78,4 +78,10 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 	public List<ProductVO> star() throws Exception {
 		return dao.star();
 	}
+	
+	public List<ProductVO> detail() throws Exception {
+		return dao.detail();
+	}
+
+	
 }

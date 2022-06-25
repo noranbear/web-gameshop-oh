@@ -17,20 +17,22 @@
     <!-- Breadcrumb End -->
 
     <!-- Anime Section Begin -->
-    <section class="anime-details spad">
-        <div class="container">
+    <section class="anime-details spad" >
+        <div class="container" >
             <div class="anime__details__content">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="img/anime/details-pic.jpg">
+                    <div class="col-lg-3" th:each="p:${plist}"> 
+                        <div class="anime__details__pic set-bg">
+                        <div th:attr="data-setbg='img/all/'+${p.imgname}">
                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>
                     </div>
+                    </div>
                     <div class="col-lg-9">
-                        <div class="anime__details__text">
+                        <div class="anime__details__text" th:value="${dp.id}">
                             <div class="anime__details__title">
-                                <h3>Fate Stay Night: Unlimited Blade</h3>
+                                <h3 id="gname" th:text="${dp.name}">Game Name</a></h3>
                                 <span>フェイト／ステイナイト, Feito／sutei naito</span>
                             </div>
                             <div class="anime__details__rating">
@@ -41,37 +43,38 @@
                                     <a href="#"><i class="fa fa-star"></i></a>
                                     <a href="#"><i class="fa fa-star-half-o"></i></a>
                                 </div>
-                                <span>1.029 Votes</span>
+                               
                             </div>
                             <p>Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
                                 their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
                                 never to be seen again. But her mother’s last words send Hina on a quest to find a
                             legendary hero from the Waste War - the fabled Ace!</p>
-                            <div class="anime__details__widget">
+                            <div class="anime__details__widget" >
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Type:</span> TV Series</li>
-                                            <li><span>Studios:</span> Lerche</li>
-                                            <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
-                                            <li><span>Status:</span> Airing</li>
-                                            <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
+                                            <li>price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.price}"></span> </li>
+                                            <li>bite: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.bite}"></span> </li>
+                                            <li>reldate:&nbsp;&nbsp;&nbsp;<span th:text="${dp.reldate}"></span></li>
+                                            <li>dev: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.dev}"></span></li>
+                                            <li><span th:text="${dp.price}">Genre:</span></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Scores:</span> 7.31 / 1,515</li>
-                                            <li><span>Rating:</span> 8.5 / 161 times</li>
-                                            <li><span>Duration:</span> 24 min/ep</li>
-                                            <li><span>Quality:</span> HD</li>
-                                            <li><span>Views:</span> 131,541</li>
+                                            <li><span>Scores:</span></li>
+                                            <li><span>Rating:</span></li>
+                                            <li><span>Duration:</span></li>
+                                            <li><span>Quality:</span></li>
+                                            <li><span>Views:</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
+                           
+                                <a href="/wishlist" class="follow-btn"><i class="fa fa-heart-o"></i> wish</a>
+                                <a href="/cart" class="watch-btn"><span>download Now</span> <i
                                     class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
@@ -86,60 +89,42 @@
                             </div>
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-1.jpg" alt="">
+                                    <img src="img/Emoji.png" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
+                                    <h6>김준구 - <span>1 Hour ago</span></h6>
+                                    <p>좋아요</p>
                                 </div>
                             </div>
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-2.jpg" alt="">
+                                    <img src="img/hasun_img.jpg" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
+                                    <h6>하선이짱 - <span>5 Hour ago</span></h6>
+                                    <p>스토리 구성이 좋고 너무 재밌어요! 앞으로도 다양한 이벤트 기대하겠습니다👍</p>
                                 </div>
                             </div>
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-3.jpg" alt="">
+                                    <img src="img/jihun.jpg" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
+                                    <h6>홍지훈- <span>20 Hour ago</span></h6>
+                                    <p>정말 재밌고 운영진분들도 친절하게 답변해주십니다ㅋㅋㅋ</p>
                                 </div>
                             </div>
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-4.jpg" alt="">
+                                    <img src="img/1111.png" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
+                                    <h6>noranbear - <span>1 Hour ago</span></h6>
+                                    <p>게임 운영만 잘 하면 이거 만한 게임이 없는데... 이 게임만 4년 넘게 하는 중이에요!</p>
                                 </div>
                             </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-5.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-6.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
+                            
+                            
                         </div>
                         <div class="anime__details__form">
                             <div class="section-title">
@@ -152,31 +137,41 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
-                        <div class="anime__details__sidebar">
-                            <div class="section-title">
-                                <h5>you might like...</h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-4.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                            </div>
-                        </div>
+                        <div class="product__sidebar__view">
+                          <div class="section-title">
+                              <h5>YOU MIGHT LIKE</h5>
+                          </div>
+                        
+					<div class="filter__gallery">
+						<div class="product__sidebar__view__item set-bg mix day reldate"
+							data-setbg="img/all/battlefield_v_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">battlefield</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix name price"
+							data-setbg="img/all/eternal_edge1.jpg">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">eternal</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix reldate name"
+							data-setbg="img/all/destiny_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
+							<h5><a href="#">destiny</a></h5>
+						</div>
+	
+						<div class="product__sidebar__view__item set-bg mix name day"
+							data-setbg="img/all/golf_gang_1.jpg">
+							<div class="view"><i class="fa fa-circle-down"></i> 6578</div>
+							<h5><a href="#">golf_gang</a></h5>
+						</div>
+						<div class="product__sidebar__view__item set-bg mix day"
+							data-setbg="img/all/naraka_1.png">
+							<div class="view"><i class="fa fa-circle-down"></i> 7709</div>
+							<h5><a href="#">naraka</a></h5>
+						</div>
+					</div>
+	
+				</div>
                     </div>
                 </div>
             </div>

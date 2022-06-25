@@ -25,4 +25,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectid" parameterType="String" resultType="userVO">
 		SELECT * FROM CUST WHERE ID=#{id}
 	</select>
+	<update id="profile" parameterType="userVO">
+		UPDATE CUST SET ID=#{id},NAME=#{name},PWD=#{pwd},EMAIL=#{email},PHONE=#{phone}
+		WHERE NUM=#{num}
+	</update>
 </mapper>

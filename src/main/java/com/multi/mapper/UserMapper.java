@@ -31,6 +31,8 @@ public interface  UserMapper {
 	
 	public UserVO select (int num) throws Exception;
 	public List<UserVO> selectall() throws Exception;
+	public List<UserVO> profile() throws Exception;
+	
 	
 	public UserVO selectid (String id) throws Exception;
 	

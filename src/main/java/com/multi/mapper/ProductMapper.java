@@ -37,8 +37,10 @@ public interface ProductMapper {
 	public List<ProductVO> getaction1() throws Exception;
 	public List<ProductVO> getaction2() throws Exception;
 	public List<ProductVO> getaction3() throws Exception;
+	public List<ProductVO> detail() throws Exception;
 	
 	public List<ProductVO> newgame() throws Exception;
 	
 	public List<ProductVO> star() throws Exception;
+	
 }

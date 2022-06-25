@@ -1,6 +1,6 @@
 package com.multi.controller;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
@@ -39,6 +40,7 @@ public class MainController {
 	
 	@Autowired
 	ProductBiz pbiz;
+	
 	
 	@RequestMapping("/")
 	public String main() {
@@ -127,22 +129,40 @@ public class MainController {
 		return "/index";
 	}
 	
-	@RequestMapping("/detail")
-	public String detail(Model m) {
-		m.addAttribute("center", "detail");
-		return "/index";
-	}
+	
 	
 	
 	/*
 	 * profile
 	 */
+	
 	@RequestMapping("/profile")
 	public String profile(Model m) {
+	
 		m.addAttribute("center", "profile");
 		return "/index";
 	}
 	
+	@RequestMapping("/update")
+	public String update(Model m, UserVO obj) {
+		try {
+			ubiz.modify(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:detail?id="+obj.getId();
+	}
+	@RequestMapping("/updateimpl")
+	public String updateimpl(Model m, UserVO user, HttpSession session) {
+		try {
+			ubiz.modify(user);
+			session.setAttribute("updateuser", user);
+			System.out.println(user);
+		} catch (Exception e) {
+			return "redirect:/profile";
+		}
+		return "/index";
+	}
 	
 	/*
 	 * box
@@ -166,6 +186,24 @@ public class MainController {
 		m.addAttribute("bcenter", "allgame");
 		return "/index";
 	}
-
-}
 	
+	
+	
+	@RequestMapping("/detail")
+    public String detail(Model m, int id) {
+        ProductVO obj = null;
+        try {
+        	
+            obj = pbiz.get(id);
+            m.addAttribute("dp", obj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        m.addAttribute("center", "detail");
+        return "/index";
+    }
+	
+	
+	
+	
+}	
