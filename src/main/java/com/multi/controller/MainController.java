@@ -173,7 +173,7 @@ public class MainController {
 		return "/index";
 	}
 	
-	// 로그인 안 했을 때의 Library 화면
+	// 로그인 안 했을 때의 Library 화면 - (테스트 용) 없애야 할 듯
 	@RequestMapping("/nobox")
 	public String nobox(Model m) {
 		m.addAttribute("center", "box/bmain");
