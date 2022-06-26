@@ -1,4 +1,21 @@
 <meta charset="UTF-8">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<style>
+.product__item__pic {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.anime__details__text {
+	width: 100%;
+	position: relative;
+	top: 0px;
+}
+</style>
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -20,19 +37,17 @@
     <section class="anime-details spad" >
         <div class="container" >
             <div class="anime__details__content">
-                <div class="row">
-                    <div class="col-lg-3" th:each="p:${plist}"> 
+                <div class="row"  th:each="p:${dp}">
+                    <div class="col-lg-12"> 
                         <div class="anime__details__pic set-bg">
-                        <div th:attr="data-setbg='img/all/'+${p.imgname}">
-                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                         </div>
                     </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="anime__details__text" th:value="${dp.id}">
+                    <div class="col-lg-12">
+                        <div class="anime__details__text" th:value="${p.id}">
                             <div class="anime__details__title">
-                                <h3 id="gname" th:text="${dp.name}">Game Name</a></h3>
+                                <h3 id="gname" th:text="${p.name}">Game Name</a></h3>
                                 <span>フェイト／ステイナイト, Feito／sutei naito</span>
                             </div>
                             <div class="anime__details__rating">
@@ -53,11 +68,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li>price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.price}"></span> </li>
-                                            <li>bite: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.bite}"></span> </li>
-                                            <li>reldate:&nbsp;&nbsp;&nbsp;<span th:text="${dp.reldate}"></span></li>
-                                            <li>dev: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${dp.dev}"></span></li>
-                                            <li><span th:text="${dp.price}">Genre:</span></li>
+                                            <li>price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${p.price}"></span> </li>
+                                            <li>bite: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${p.bite}"></span> </li>
+                                            <li>reldate:&nbsp;&nbsp;&nbsp;<span th:text="${p.reldate}"></span></li>
+                                            <li>dev: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${p.dev}"></span></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -74,7 +88,7 @@
                             <div class="anime__details__btn">
                            
                                 <a href="/wishlist" class="follow-btn"><i class="fa fa-heart-o"></i> wish</a>
-                                <a href="/cart" class="watch-btn"><span>download Now</span> <i
+                                <a href="/cart" class="watch-btn"><span>Add to Cart</span> <i
                                     class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
