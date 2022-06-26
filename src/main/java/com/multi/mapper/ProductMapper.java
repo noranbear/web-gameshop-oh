@@ -61,4 +61,8 @@ public interface ProductMapper {
 	public List<ProductVO> search2(String txt) throws Exception;
 	public List<ProductVO> search3(String txt) throws Exception;
 
+	// Home
+	public List<ProductVO> getactionhome() throws Exception;
+	public List<ProductVO> getrpghome() throws Exception;
+	public List<ProductVO> getsportshome() throws Exception;
 }

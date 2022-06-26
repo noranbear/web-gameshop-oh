@@ -113,4 +113,21 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.reldate;
 	</select>
 	
+	<!-- Home page -->
+	<select id="getactionhome" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (11, 12, 13) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
+	</select>
+	<select id="getrpghome" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (21, 22, 23) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
+	</select>
+	<select id="getsportshome" parameterType="int" resultType="productVO">
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid
+		WHERE p.ctid IN (31, 32, 33) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
+	</select>
+	
 </mapper>

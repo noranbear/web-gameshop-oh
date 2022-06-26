@@ -249,7 +249,7 @@ rel="stylesheet">
                     	<ul class="nav navbar-nav navbar-right">
 					      	<li>
 					      	    <a href="/search?txt=" class="search-switch"><span class="icon_search"></span></a>
-					      		<span>username</span>
+					      		<span id="uname" th:text="${session.loginuser.name}"></span>
 					      		<a href="#"><span class="icon_profile"></span></a></i>
 					      		<!-- 로그인 dropdown -->
 				      			<ul id="login_db" class="dropdown">

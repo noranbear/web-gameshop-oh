@@ -54,8 +54,25 @@ public class MainController {
 	
 	
 	@RequestMapping("/")
-	public String main() {
-		return "index";
+	public String main(Model m) {
+		List<ProductVO> alist = null;
+		List<ProductVO> rlist = null;
+		List<ProductVO> slist = null;
+		List<ProductVO> nlist = null;
+		try {
+			alist = pbiz.getactionhome();
+			m.addAttribute("alist", alist);
+			rlist = pbiz.getrpghome();
+			m.addAttribute("rlist", rlist);
+			slist = pbiz.getsportshome();
+			m.addAttribute("slist", slist);
+			nlist = pbiz.newgame();
+			m.addAttribute("nlist", nlist);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		m.addAttribute("center", "center");
+		return "/index";
 	}
 	
 	
