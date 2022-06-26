@@ -1,0 +1,59 @@
+<meta charset="UTF-8">
+
+<!-- Version: 1.0 -->
+<!--
+---------------------------------------------------------------
+	Date			 Author					Note
+---------------------------------------------------------------
+2022. 06. 25		noranbear		  페이지 화면 구현 완성
+
+---------------------------------------------------------------
+-->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<style>
+/* 전체 div에 손가락 커서 적용 */
+#center_div {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 325px;
+	
+	cursor: pointer;
+}
+
+/* Icon 가운데로 보내기 */
+.material-symbols-outlined {
+	font-size: 50px;
+	margin: 10px 0 20px 0;
+	color: #a1a3cc;
+	
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+}
+
+/* 주의문 가운데로 보내기 */
+#center_div h5 {
+	color: #a1a3cc;
+	font-size: smaller;
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+}
+</style>
+
+
+<!-- div의 그 어디를 눌러도 로그인 페이지로 연결 -->
+<div id="center_div" onclick="location.href='/login';">
+	<span class="material-symbols-outlined">error</span>
+	<h5>로그인 후 이용하시기 바랍니다.</h5>
+</div>
+
