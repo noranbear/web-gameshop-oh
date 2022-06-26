@@ -9,7 +9,7 @@ import com.multi.vo.BoxVO;
 /**
  * @author hongjihu
  * @date 2022. 6. 20.
- * @version 1.0
+ * @version 2.0
  * @description
  * BoxMapper 작성
  *
@@ -17,7 +17,7 @@ import com.multi.vo.BoxVO;
  * 	    DATE			   AUTHOR				  NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		   hongjihu			      BoxMapper
- *  
+ *  2022. 6. 26.		  qwaszx357			  selectuser add	
  *
  * =========================================================
  */
@@ -32,4 +32,6 @@ public interface  BoxMapper {
 	public BoxVO select (Integer k) throws Exception;
 	public List <BoxVO> selectall() throws Exception;
 	
+	public List <BoxVO> selectwish(String k) throws Exception;
+
 }

@@ -1,14 +1,20 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
-<!-- Version: 1.0 -->
+
+<!-- Version: 3.1 -->
 <!--
 --------------------------------------------------------------------------
 	Date			 Author						Note
 --------------------------------------------------------------------------
-2022. 06. 22		noranbear  				  Page 수정
-2022. 06. 23						      input 중앙으로 옮기기
+2022. 06. 22.		noranbear  				  Page 수정
+2022. 06. 23.						      input 중앙으로 옮기기
 										페이지 구현 완료 (세로선 없앰)
+			
+2022. 06. 26.  qwaszx357      profile 유저 정보 출력 및 업데이트 기능   
+2022. 06. 26.							취소, 수정 버튼 위치 조정
 --------------------------------------------------------------------------
 -->
+  
 <style>
 /* input 가운데로 옮기기 */
 .login__form {
@@ -20,22 +26,33 @@
 .login__form form .input__item{
 	width: 300px;
 }
-/* 세로 선 없애기 */
+/* 세로선 없애기 */
 .login__form:after {
 	width: 0px;
 }
+
+/*	취소, 이전 버튼 디자인 및 위치 조정  */
+#update_btn {
+	float: right;
+	border-radius: 2px;
+}
+
+#back_btn {
+	border-radius: 2px;
+	margin-top: 10px;
+}
+
 </style>
 <script>
 $(document).ready(function(){
-	$('#updatebtn').click(function(){
-		$('.user').attr({
+	$('#update_btn').click(function(){
+		$('#update_form').attr({
 			'method':'post',
-			'action':'update' 
+			'action':'/update' 
 		});
-		$('.user').submit();
+		$('#update_form').submit();
 	});
 });
-
 </script>
 
 <!-- Normal Breadcrumb Begin -->
@@ -52,37 +69,35 @@ $(document).ready(function(){
 <!-- Normal Breadcrumb End -->
 
 <!-- Profile Edit Section Begin -->
-<section class="signup spad" th:each="c : ${clist}">
+<section class="signup spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="login__form">
                     <h3>프로필 수정</h3>
-                    <form id="signup_form" action="#">
+                    <form id="update_form" action="#">
                     	<div class="input__item">
-                            <input id="id" name="id" th:value="${c.id}" type="text" readonly="readonly" placeholder="ID">
+                            <input id="id" name="id" type="text" th:value="${u.id}" readonly="readonly" placeholder="ID">
                             <span class="icon_id"></span>
                         </div>
                         <div class="input__item">
-                            <input id="name" name="name" th:value="${c.name}" type="text" placeholder="Your Name">
+                            <input id="name" name="name" type="text" th:value="${u.name}" placeholder="Your Name">
                             <span class="icon_profile"></span>
                         </div>
                         <div class="input__item">
-                            <input id="pwd" name="pwd" th:value="${c.pwd}" type="password" placeholder="Password">
+                            <input id="pwd" name="pwd" type="password" th:value="${u.pwd}" placeholder="Password">
                             <span class="icon_lock"></span>
                         </div>
                         <div class="input__item">
-                            <input id="mail" name="email" th:value="${c.email}" type="email" placeholder="Email address">
+                            <input id="mail" name="email" type="email" th:value="${u.email}" placeholder="Email address">
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input id="phone" name="phone" value="phone" type="text" placeholder="Phone Number">
+                            <input id="phone" name="phone" type="text" th:value="${u.phone}" placeholder="Phone Number">
                             <span class="icon_phone"></span>
                         </div>
-                        <button id="signup_btn" type="submit" class="site-btn">수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 						<input type="button" class="site-btn" value="취소" onclick="history.back(1)">
-                        
+						<input id="back_btn" type="button" class="site-btn" value="취소" onclick="history.back(1)">
+                        <button id="update_btn" type="submit" class="site-btn">수정</button>
                     </form>
                 </div>
             </div>

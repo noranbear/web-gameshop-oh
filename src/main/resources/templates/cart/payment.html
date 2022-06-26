@@ -6,78 +6,38 @@
 --------------------------------------------------------------------------
 2022. 06. 23		noranbear  		 payment 페이지 생성 및 디자인 수정
 2022. 06. 25						'사용가능한 카드' icon 에러 수정 완료
-2022. 06. 26		najune			 동의하기 체크시 결제버튼 활성화 v1
+2022. 06. 26		najune			 동의하기 체크시 결제버튼 활성화 
 --------------------------------------------------------------------------
 -->
 
 <link rel="stylesheet" href="ourcss/payment-style.css" type="text/css">
 
 <script>
-// 결제 버튼 snackbar
+//결제 버튼 snackbar
 function myFunction() {
-	// Get the snackbar DIV
-	var x = document.getElementById("snackbar");
-	
-	// Add the "show" class to DIV
-	x.className = "show";
-	
-	// After 3 seconds, remove the show class from DIV
-	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    
+    // Add the "show" class to DIV
+    x.className = "show";
+    
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 
-	// snackbar가 내려가고 나서 구매목록으로 자동 direct
-};
+    // snackbar가 내려가고 나서 구매목록으로 자동 direct
+    setTimeout(function(){location.href='/allgame';}, 3000);
+}
 
 //동의 체크해야 결제 버튼 활성화
-$(document).ready(function(){
-
-	$("#order2_chk").click(function(){
-	var order2Chk=$("#order2_chk").prop("checked");
-
-	    if(order2Chk){
-	        $(".order2_chks").prop("checked",true);
-	        $(".btnArea button").css({"backgroundColor":"#d2201d","cursor":"pointer","color":"#fff"}).prop("disabled",false);
-	    }
-	    else{
-	        $(".order2_chks").prop("checked",false);
-	        $(".btnArea button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
-	    }
-	});
-
-	$('.order2_chks').click(function(){
-	    var tmpp = $(this).prop('checked'); 
-	    var tt = $(".order2_chks").length;
-	    var ss = $(".order2_chks:checked").length;
-	    
-	    if(tmpp==true || ss>0){
-	    $(".btnArea button").css({"backgroundColor":"#d2201d","cursor":"pointer","color":"#fff"}).prop("disabled",false);
-	    }
-	    else{
-	    $(".btnArea button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
-	    }
-	    	    
-	    if(tt == ss){
-	    	$("#order2_chk").prop("checked",true);
-	    }else{
-	    	$("#order2_chk").prop("checked",false);
-	    }
-	    
-		});
-	
-	$(window).on('load',function() {     
-        if(result) {
-           //yes
-        	window.location.reload("/cart");
-        } else {
-            //no
-        }
-    });
-});
-
-
-
+function agreeCheck(frm)
+{
+   if (frm.checkButton.disabled==true)
+    frm.checkButton.disabled=false
+   else
+    frm.checkButton.disabled=true
+}
 
 </script>
-
 
 <style>
 .btnArea{width:100%; margin-top:30px;}
@@ -161,11 +121,13 @@ $(document).ready(function(){
           
         					</div>
         					<label id="consent">
-	          					<input type="checkbox" name="cbox" id="order2_chk"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
+	          					<input type="checkbox" name="agree" onClick="agreeCheck(this.form)"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
 	        				</label>
 	        				<!-- Use a button to open the snackbar -->
-	        				<div class="btnArea">
-	        				<button class="btn" id="pbtn" disabled="disabled" onclick="alert('결제가 완료되었습니다.');">결제하기</button>	
+	        				<div class="btnArea">	        				
+	        				<input type="button" name="checkButton" value="결제하기" disabled="disabled"class="btn btn-danger" onclick="myFunction()" >
+							<!-- The actual snackbar -->
+							<div id="snackbar">결제가 완료되었습니다.</div>	
 	        				</div>
 	      				</form>
 	    			</div>

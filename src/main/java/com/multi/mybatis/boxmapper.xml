@@ -21,12 +21,15 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectall" resultType="boxVO">
 		SELECT * FROM BOX
 	</select>
-	<select id="selectuser1"  resultType="boxVO">
-        SELECT b.id, b.unum, b.pid, b.date, b.kind, c.name AS uname, c.id AS uid, c.regdate, i.name AS imgname FROM BOX b
+	
+	<!-- wish -->
+	<select id="selectwish"  resultType="boxVO">
+        SELECT b.id, b.unum, b.pid, b.date, b.kind, c.name AS uname, c.id AS uid, p.name AS pname, p.price, i.name AS imgname FROM BOX b
         INNER JOIN CUST c  ON b.unum = c.num
         INNER JOIN PRODUCT p ON b.pid = p.id
         INNER JOIN IMAGE i ON p.id = i.pid
         WHERE c.id = #{uid} AND b.kind = "wish" AND i.name LIKE '%2%'
     </select>
+
 	
 </mapper>

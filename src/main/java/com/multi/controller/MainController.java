@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.multi.biz.BoxBiz;
 import com.multi.biz.ProductBiz;
 import com.multi.biz.UserBiz;
 import com.multi.vo.UserVO;
@@ -42,6 +43,9 @@ public class MainController {
 	@Autowired
 	ProductBiz pbiz;
 	
+	@Autowired
+	BoxBiz bbiz;
+	
 	
 	
 	@RequestMapping("/")
@@ -63,10 +67,10 @@ public class MainController {
 	}
 
 	@RequestMapping("/loginimpl")
-	public String loginimpl(Model m, String id, String pwd, HttpSession session) {
+	public String loginimpl(Model m, String id, String pwd, HttpSession session){
 		UserVO user = null;
 		try {
-			user = ubiz.getid(id);
+			user = ubiz.getuserid(id);
 			if (user != null) {
 				if (user.getPwd().equals(pwd)) {
 					session.setAttribute("loginuser", user);
@@ -153,29 +157,30 @@ public class MainController {
 	 * profile
 	 */
 	@RequestMapping("/profile")
-    public String profile(Model m, HttpSession session) {
-        UserVO user = null;
-        user = (UserVO) session.getAttribute("loginuser");
-        if (user.getId() != null) {
-            try {
-                m.addAttribute("u", user);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        m.addAttribute("center", "profile");
-        return "/index";
-    }
+	public String profile(Model m, HttpSession session) {
+		UserVO user = null;
+		user = (UserVO) session.getAttribute("loginuser");
+		if (user.getId() != null) {
+			try {
+				m.addAttribute("u", user);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		m.addAttribute("center", "profile");
+		return "/index";
+	}
 
 	
 	@RequestMapping("/update")
-	public String update(Model m, UserVO obj) {
+	public String update(Model m, UserVO user, HttpSession session) {
 		try {
-			ubiz.modify(obj);
+			ubiz.modify(user);
+			session.setAttribute("loginuser", user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:detail?id="+obj.getId();
+		return "/index";
 	}
 	
 	/*
@@ -189,22 +194,14 @@ public class MainController {
 	}
 	
 	@RequestMapping("/wishlist")
-	public String wishlist(Model m ,String id) {
-		List<UserVO> list = null;
-		UserVO obj = null;
-		try {
-			list = ubiz.get();
-			m.addAttribute("ulist", list);
-			obj = ubiz.getid(id);
-			m.addAttribute("u", obj);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		m.addAttribute("center", "box/bmain");
-		m.addAttribute("bcenter", "box/wishlist");
-		return "/index";
-	}
+    public String wishlist(Model m, UserVO u, HttpSession session) {
+		
+        m.addAttribute("center", "box/bmain");
+        m.addAttribute("bcenter", "box/wishlist");
+        return "/index";
+    }
 	
+
 	@RequestMapping("/allgame")
 	public String allgame(Model m) {
 		m.addAttribute("center", "box/bmain");

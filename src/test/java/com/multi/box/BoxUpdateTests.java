@@ -29,7 +29,7 @@ public class BoxUpdateTests {
 	
 	@Test
 	void contextLoads() {
-		BoxVO box = new BoxVO(6,2,110,null,"kart");
+		BoxVO box = new BoxVO(6,2,110,"kart");
 		
 		try {
 			biz.modify(box);

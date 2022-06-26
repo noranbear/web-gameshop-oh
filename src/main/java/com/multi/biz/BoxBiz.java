@@ -18,7 +18,7 @@ import com.multi.vo.BoxVO;
  * 	    DATE			   AUTHOR				    NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		   hongjihu			      	BoxBiz
- *  
+ *  2022. 6. 26.		  qwaszx357			    getuser add
  *
  * =========================================================
  */
@@ -53,4 +53,7 @@ public class BoxBiz implements Biz<Integer, BoxVO>  {
 		return dao.selectall();
 	}
 	
+	public List<BoxVO> getwish(String k) throws Exception {
+		return dao.selectwish(k);
+	}
 }

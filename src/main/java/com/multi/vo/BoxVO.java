@@ -11,7 +11,7 @@ import lombok.ToString;
 /**
  * @author hongjihu
  * @date 2022. 6. 20.
- * @version 1.0
+ * @version 2.0
  * @description
  * BoxVO 작성
  *
@@ -19,7 +19,7 @@ import lombok.ToString;
  * 	    DATE			   AUTHOR				  NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		   hongjihu			      BoxVO
- *  
+ *  2022. 6. 26.	      qwaszx357			  user 컬럼 추가
  *
  * =========================================================
  */
@@ -35,11 +35,24 @@ public class BoxVO {
 	private int pid; 		//foreign key
 	private Date date;
 	private String kind;
+	
+	private String uname;
+	private String uid;
+	private Date regdate;
 	private String imgname;
 	
 	// Constructor for insert
 	public BoxVO(int unum, int pid, String kind) {
 		
+		this.unum = unum;
+		this.pid = pid;
+		this.kind = kind;
+	}
+	
+	// Constructor for update
+	public BoxVO(int id, int unum, int pid, String kind) {
+		
+		this.id = id;
 		this.unum = unum;
 		this.pid = pid;
 		this.kind = kind;
