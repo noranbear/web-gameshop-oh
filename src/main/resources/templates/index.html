@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-<!-- Version: 5.3 -->
+<!-- Version: 6.0 -->
 <!--
 --------------------------------------------------------------------------
 	Date			Author						Note
@@ -18,6 +18,12 @@
 									footer와 pagination margin-top 수정
 
 2022. 06. 26 						Header에 Recommedation 대신 News 추가
+										News와 카테고리 자리 바꿈
+									Categories dropdwon 디자인 수정
+									Search login하면 안되는 문제 해결
+									
+								Header profile dropdown 부분 위로 올리기
+								- 주의 범위를 호버해도 나온다는 오류가 있음
 --------------------------------------------------------------------------
 -->
 <head>
@@ -53,79 +59,130 @@ rel="stylesheet">
 <!-- Icon CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
 <style>
-.footer__nav ul > li > a{
-	font-size: xx-small;
+/* [1] Header-left ------------*/
+
+/* (1) Header text color */
+.header__menu ul li a {
+	color: #ffffff;
+}
+
+.header__menu ul li:hover a {
+	color: #a1a3cc;
+}
+
+#best_list:hover a {
+	color: #ffffff;
+}
+/* (1) ends */
+
+/* (2) Dropdown */
+/* dropdown 가로 크기 바꾸기 */
+.header__menu ul li .dropdown {
+	width: 200px;
+	padding: 0 0;	/* hover 할 때 밑에 빈칸 안 남게 */
+}
+
+.dropdown li:last-child {
+	padding-bottom: 10px;	/* 카테고리 밑에 margin */
+}
+
+/* dropdown 상위 카테고리 */
+#topcate {
+	padding-top: 5px;
+}
+#topcate a {
+	font-size: 15px;
+	font-weight: bold;
 }
 .dropdown hr {
 	margin: 0;
 	padding: 0;
 }
-/* dropdown 밑의 li에 hover하면 스타일 변화 주기
-.dropdown li > a:hover {
-	color: grey;
-}*/
-#ctname {
-	font-weight: bold;
+
+/* hover */
+.dropdown li:hover{
+	background: #a1a3cc;
 }
 
-/*dropdown*/
-.dropdown {
-  z-index: 10;
-  display: inline-block;
+/* [1] ENDS ------------------*/
+
+
+/* [2] Header-right ----------*/
+
+/* (1) dropdown */
+#login_db {
+	width: 100px;
+	padding: 0 0;	/* hover 할 때 밑에 빈칸 안 남게 */
 }
 
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 10px 10px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+.header__right ul li:hover .dropdown {	/* dropdown menu가 나오는 때 */
+	top: 62px;
+	opacity: 1;
+	visibility: visible;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+.header__right ul li:hover .dropdown li a {
+	background: transparent;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.header__right ul li .dropdown {	/* dropdown menu */
+	position: absolute;
+	left: 70%;
+	top: 82px;
+	width: 150px;
+	background: #ffffff;
+	text-align: left;
+	padding: 5px 0;
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
 }
 
-.dropdown-content a {
-  font-size: 12px;
-  float: none;
-  color: black;
-  padding: 5px 10px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+.header__right ul li .dropdown li a {	/* dropdown menu text */
+	font-size: 14px;
+	color: #111111;
+	font-weight: 500;
+	padding: 5px 20px;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
+/* (2) usurname span */
+.header__right ul li span {
+	margin-right: 10px;
+	color: white;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+/* (3) search icon */
+.icon_search:hover {
+	color: #a1a3cc;
 }
 
+/* [2] ENDS ----------*/
+
+
+/* [3] footer ----------*/
 /* footer와 center page 간격 넓히기 */
 .footer {
 	margin-top: 30px;
 }
 
+/* footer 글씨 크기 */
+.footer__nav ul > li > a{
+	font-size: xx-small;
+}
+/* [3] footer ENDS ----------*/
+
+
+/* [4] 전반적인 페이지에 적용할 CSS */
 /* pagination과 product 카드 간격 넓히기 */
 .product__pagination {
 	margin-top: 50px;
-} 
+}
+/* [4] ENDS -------------*/
 </style>
 
 </head>
@@ -151,27 +208,27 @@ rel="stylesheet">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="#">Best</a></li>
+                                <li id="best_list" class="active"><a href="/">Best</a></li>
+                                <li><a href="/news">News</a></li>
                                 <li><a href="#">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="/action">Action</a></li>
+                                        <li id="topcate"><a href="/action">Action</a></li>
                                         <hr>
                                         <li><a href="/action1">Rougue-Like</a></li>
                                         <li><a href="/action2">Arcade & Rhythm</a></li>
                                         <li><a href="/action3">Fighting & Martial Arts</a></li>
-                                        <li><a href="/rpg">RPG</a></li>
+                                        <li id="topcate"><a href="/rpg">RPG</a></li>
                                         <hr>
                                         <li><a href="/rpg1">Adventure</a></li>
                                         <li><a href="/rpg2">Strategy</a></li>
                                         <li><a href="/rpg3">JRPG</a></li>
-                                        <li><a href="/sports">Sports</a></li>
+                                        <li id="topcate"><a href="/sports">Sports</a></li>
                                         <hr>
                                         <li><a href="/sports1">Racing</a></li>
                                         <li><a href="/sports2">Team Sports</a></li>
                                         <li><a href="/sports3">Fishing & Hunting</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/news">News</a></li>
                                 <li><a href="/box">Library</a></li>
                             </ul>
                         </nav>
@@ -189,22 +246,19 @@ rel="stylesheet">
                 </div>
                 <div class="col-lg-3" th:unless="${session.loginuser == null}">
                     <div class="header__right">
-                    	<ul class="nav navbar-nav navbar-right"> 	
+                    	<ul class="nav navbar-nav navbar-right">
 					      	<li>
-					      	    <a href="#" class="search-switch"><span class="icon_search"></span></a>
-					      	    <span>username</span>
+					      	    <a href="/search?txt=" class="search-switch"><span class="icon_search"></span></a>
+					      		<span>username</span>
+					      		<a href="#"><span class="icon_profile"></span></a></i>
+					      		<!-- 로그인 dropdown -->
+				      			<ul id="login_db" class="dropdown">
+				      				<li><a href="/profile">Profile</a></li>
+					      			<li><a href="/cart">Cart</a></li>
+					      			<li><a href="/logout">Logout</a></li>
+				      			</ul>
 					      	</li>
 					    </ul>
-			      		<div class="dropdown">
-						    <button class="dropbtn"><span class="icon_profile"></span>
-      							<i class="fa fa-caret-down"></i>
-    						</button>
-						    <div class="dropdown-content">
-						      <a href="/profile">Profile</a>
-						      <a href="/cart">Cart</a>
-						      <a href="/logout">Logout</a>
-						    </div>
-					    </div> 
 			      	</div>
                 </div>
             </div>
@@ -213,11 +267,11 @@ rel="stylesheet">
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <div th:insert="${center} ? ${center} : center"> <!-- 센터 -->
-    
-</div>
-<!-- Product Section End -->
+	<!-- Hero Section Begin -->
+	<div th:insert="${center} ? ${center} : center"> <!-- 센터 -->
+	    
+	</div>
+	<!-- Product Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer">
