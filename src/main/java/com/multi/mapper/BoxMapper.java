@@ -34,5 +34,6 @@ public interface  BoxMapper {
 	
 	public List <BoxVO> selectwish(String k) throws Exception;
 	public List <BoxVO> selectcart(String k) throws Exception;
+	public BoxVO selecttotal (String k) throws Exception;
 
 }

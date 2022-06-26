@@ -60,4 +60,8 @@ public class BoxBiz implements Biz<Integer, BoxVO>  {
 	public List<BoxVO> getcart(String k) throws Exception {
 		return dao.selectcart(k);
 	}
+	
+	public BoxVO gettotal(String k) throws Exception {
+		return dao.selecttotal(k);
+	}
 }

@@ -39,5 +39,12 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         INNER JOIN IMAGE i ON p.id = i.pid
         WHERE c.id = #{uid} AND b.kind = "cart" AND i.name LIKE '%2%'
     </select>
+   	<select id="selecttotal" parameterType="String" resultType="boxVO">
+		SELECT b.id, COUNT(p.name) AS cnt, SUM(p.price) AS tprice FROM BOX b
+        INNER JOIN CUST c  ON b.unum = c.num
+        INNER JOIN PRODUCT p ON b.pid = p.id
+        INNER JOIN IMAGE i ON p.id = i.pid
+        WHERE c.id = #{uid} AND b.kind = "cart" AND i.name LIKE '%2%'
+    </select>
 	
 </mapper>

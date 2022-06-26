@@ -13,18 +13,20 @@
 <link rel="stylesheet" href="ourcss/wishlist-style.css" type="text/css">
 
 <script>
-$(document).ready(function(){
-	$('#x_bt').click(function(){
-		$('#delete_wish').attr({
-			'method':'post',
-			'action':'/wishlist' 
-		});
-		$('#delete_wish').submit();
+function addcart(pid){
+	var cid = $('#cid').val();
+	var cnt = $('#'+pid+'cnt').val();
+	$.ajax({
+		url:'/addcart',
+		data:{'uid':cid,'pid':pid,'cnt':cnt},
+		success:function(data){
+			alert('Cart에 넣었습니다.');
+		}
 	});
-});
+}
 </script>
 
-<div class="row">
+<div class="row"  th:if="${session.logincust != null}">
 
 	<!-- 카트에 안 넣은 경우 -->
 	<div class="col-lg-3 col-md-4 col-sm-6" th:each="w:${wlist}">
@@ -44,7 +46,7 @@ $(document).ready(function(){
 				<form id="delete_wish">
 				<div class="product-item-gradient">
 	                <!-- 리스트에서 없애기 버튼 -->
-			       	<button id="x_bt" type="button" class="ep">X</button>
+			       	<button id="x_bt" name="xbtn" type="button" class="ep">X</button>
 			    	
 				    <a class="btn btn-danger" th:onclick="addcart([[${w.uid}]])" id="inputcart" href="#">Add to Cart</a>
 	    		</div>

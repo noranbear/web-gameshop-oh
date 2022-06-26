@@ -232,6 +232,18 @@ public class MainController {
 		return "/index";
 	}
 	
+	@RequestMapping("/deletewish")
+	public String deletewish(Model m, int id) {
+		try {
+			bbiz.remove(id);
+			m.addAttribute("center", "box/bmain");
+			m.addAttribute("bcenter", "box/wishlist");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:select";
+	}
+	
 	@RequestMapping("/allgame")
 	public String allgame(Model m) {
 		m.addAttribute("center", "box/bmain");
@@ -252,14 +264,17 @@ public class MainController {
 	 * cart
 	 */
 	@RequestMapping("/cart")
-	public String cart(Model m, HttpSession session) {
+	public String cart(Model m, BoxVO b, HttpSession session) {
 		List<BoxVO> list = null;
+		BoxVO total = null;
 		UserVO user = null;
 		user = (UserVO) session.getAttribute("loginuser");
 		if (user.getId() != null) {
 			try {
 				list = bbiz.getcart(user.getId());
 				m.addAttribute("clist", list);
+				total = bbiz.gettotal(user.getId());
+				m.addAttribute("total", total);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -272,6 +287,17 @@ public class MainController {
 	public String payment(Model m) {
 		m.addAttribute("center", "cart/payment");
 		return "/index";
+	}
+	
+	@RequestMapping("/deletecart")
+	public String deletecart(Model m, int id) {
+		try {
+			bbiz.remove(id);
+			m.addAttribute("center", "cart/cart");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:select";
 	}
 
 	/*
