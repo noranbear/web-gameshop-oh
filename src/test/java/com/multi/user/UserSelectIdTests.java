@@ -32,7 +32,7 @@ public class UserSelectIdTests {
 		UserVO obj=null;
 		
 		try {
-			obj =biz.getid("hs55");
+			obj =biz.getuserid("hs55");
 			System.out.println(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
