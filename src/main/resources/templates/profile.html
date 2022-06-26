@@ -34,7 +34,7 @@
 }
 
 /*	취소, 이전 버튼 디자인 및 위치 조정  */
-#signup_btn {
+#update_btn {
 	float: right;
 	border-radius: 2px;
 }
@@ -98,9 +98,8 @@ $(document).ready(function(){
                             <input id="phone" name="phone" type="text" th:value="${u.phone}" placeholder="Phone Number">
                             <span class="icon_phone"></span>
                         </div>
-
-                        <input id="back_btn" type="button" class="site-btn" value="취소" onclick="history.back(1)">
-                        <button id="signup_btn" type="submit" class="site-btn">이전</button>
+						<input id="back_btn" type="button" class="site-btn" value="취소" onclick="history.back(1)">
+                        <button id="update_btn" type="submit" class="site-btn">수정</button>
                     </form>
                 </div>
             </div>

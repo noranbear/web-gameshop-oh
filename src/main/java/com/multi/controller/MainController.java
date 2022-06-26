@@ -148,7 +148,8 @@ public class MainController {
 			}
 		}
 		m.addAttribute("center", "profile");
-  }
+		return "/index";
+	}
   
   	@RequestMapping("/update")
 	public String update(Model m, UserVO user, HttpSession session) {
