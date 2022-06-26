@@ -19,7 +19,7 @@ import com.multi.vo.UserVO;
  * @date 2022. 6. 21.
  * @version 4.0
  * @description
- *
+ * 화면을 이어주는 Controller
  *
  * ====================================================================
  * 	    DATE			 AUTHOR				        NOTE
@@ -34,6 +34,8 @@ import com.multi.vo.UserVO;
  *  
  *	2022. 06. 25.		noranbear			 	 box 연결 수정
  *												 nobox 추가
+ *
+ *	2022. 06. 26.							  news, ndetail 추가
  * ====================================================================
  */
 @Controller
@@ -127,7 +129,19 @@ public class MainController {
 	}
 
 
-
+	/*
+	 * profile
+	 */
+	@RequestMapping("/profile")
+	public String profile(Model m) {
+		m.addAttribute("center", "profile");
+		return "/index";
+	}
+	
+	
+	/*
+	 * cate
+	 */
 	@RequestMapping("/category")
 	public String category(Model m) {
 		m.addAttribute("center", "category");
@@ -148,16 +162,21 @@ public class MainController {
     }
 	
 	
-	
-	
 	/*
-	 * profile
+	 * News
 	 */
-	@RequestMapping("/profile")
-	public String profile(Model m) {
-		m.addAttribute("center", "profile");
+	@RequestMapping("/news")
+	public String news(Model m) {
+		m.addAttribute("center", "news/news");
 		return "/index";
 	}
+	
+	@RequestMapping("/ndetail")
+	public String ndetail(Model m) {
+		m.addAttribute("center", "news/news-detail");
+		return "/index";
+	}
+
 	
 	
 	/*
