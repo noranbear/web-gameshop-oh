@@ -13,18 +13,18 @@ import com.multi.vo.BoxVO;
  * @date 2022. 6. 26.
  * @version 1.0
  * @description
- * Box Select User1 Tests 작성
+ * Box Select Wish Tests 작성
  *
  * =========================================================
  * 	    DATE			   AUTHOR			    NOTE
  * ---------------------------------------------------------
- *  2022. 6. 26.		  qwaszx357	   Box Select User1 Tests
+ *  2022. 6. 26.		  qwaszx357	   Box Select Wish Tests
  *  
  *
  * =========================================================
  */
 @SpringBootTest
-public class BoxSelectUser1Tests {
+public class BoxSelectWishTests {
 	
 	@Autowired
 	BoxBiz biz;
@@ -34,7 +34,7 @@ public class BoxSelectUser1Tests {
 		List<BoxVO> list = null;
 		
 		try {
-			list =biz.getuser1("hs55");
+			list =biz.getwish("hs55");
 			for (BoxVO obj : list) {
 				System.out.println(obj);
 			}

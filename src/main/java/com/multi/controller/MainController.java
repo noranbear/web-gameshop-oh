@@ -213,13 +213,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/wishlist")
-	public String wishlist(Model m, UserVO u, HttpSession session) {
+	public String wishlist(Model m, HttpSession session) {
 		List<BoxVO> list = null;
 		UserVO user = null;
 		user = (UserVO) session.getAttribute("loginuser");
 		if (user.getId() != null) {
 			try {
-				list = bbiz.getuser1(user.getId());
+				list = bbiz.getwish(user.getId());
 				m.addAttribute("wlist", list);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -252,7 +252,18 @@ public class MainController {
 	 * cart
 	 */
 	@RequestMapping("/cart")
-	public String cart(Model m) {
+	public String cart(Model m, HttpSession session) {
+		List<BoxVO> list = null;
+		UserVO user = null;
+		user = (UserVO) session.getAttribute("loginuser");
+		if (user.getId() != null) {
+			try {
+				list = bbiz.getcart(user.getId());
+				m.addAttribute("clist", list);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		m.addAttribute("center", "cart/cart");
 		return "/index";
 	}

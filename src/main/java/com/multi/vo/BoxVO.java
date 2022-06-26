@@ -38,7 +38,8 @@ public class BoxVO {
 	
 	private String uname;
 	private String uid;
-	private Date regdate;
+	private String pname;
+	private int price;
 	private String imgname;
 	
 	// Constructor for insert

@@ -53,7 +53,11 @@ public class BoxBiz implements Biz<Integer, BoxVO>  {
 		return dao.selectall();
 	}
 	
-	public List<BoxVO> getuser1(String k) throws Exception {
-		return dao.selectuser1(k);
+	public List<BoxVO> getwish(String k) throws Exception {
+		return dao.selectwish(k);
+	}
+	
+	public List<BoxVO> getcart(String k) throws Exception {
+		return dao.selectcart(k);
 	}
 }

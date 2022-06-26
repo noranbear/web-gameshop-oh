@@ -34,7 +34,11 @@ $(document).ready(function(){
 				<div class="product-item-contrast"></div>
 					<div class="product__item__text">
 						<div id="rating"><span class="fa fa-star"></span>4/5</div>
-				        <h5><a href="#" th:text="${w.uname}"></a></h5>
+						<ul>
+				            <li>Active</li>
+				            <li>Movie</li>
+				        </ul>
+				        <h5><a href="#" th:text="${w.pname}"></a></h5>
 				        <div id="cart_price" th:text="'&#8361; ' + ${w.price}"></div>
 				    </div>
 				<form id="delete_wish">
