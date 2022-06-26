@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-<!-- Version: 5.2 -->
+<!-- Version: 5.3 -->
 <!--
 --------------------------------------------------------------------------
 	Date			Author						Note
@@ -16,6 +16,8 @@
                               		
 2022. 06. 25	  noranbear				header library 링크 수정
 									footer와 pagination margin-top 수정
+
+2022. 06. 26 						Header에 Recommedation 대신 News 추가
 --------------------------------------------------------------------------
 -->
 <head>
@@ -169,7 +171,7 @@ rel="stylesheet">
                                         <li><a href="/sports3">Fishing & Hunting</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Recommendation</a></li>
+                                <li><a href="/news">News</a></li>
                                 <li><a href="/box">Library</a></li>
                             </ul>
                         </nav>
@@ -226,7 +228,7 @@ rel="stylesheet">
         <div class="row">
             <div class="col-lg-3">
                 <div class="footer__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="/"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-8">
