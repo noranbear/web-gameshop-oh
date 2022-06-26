@@ -1,12 +1,16 @@
 <meta charset="UTF-8">
-<!-- Version: 1.0 -->
+<!-- Version: 2.1 -->
 <!--
 --------------------------------------------------------------------------
 	Date			 Author						Note
 --------------------------------------------------------------------------
-2022. 06. 22		noranbear  				  Page 수정
-2022. 06. 23						      input 중앙으로 옮기기
+2022. 06. 22.		noranbear  				  Page 수정
+
+2022. 06. 23.						      input 중앙으로 옮기기
 										페이지 구현 완료 (세로선 없앰)
+										
+2022. 06. 26.							취소, 수정 버튼 위치 조정
+
 --------------------------------------------------------------------------
 -->
 <style>
@@ -20,10 +24,22 @@
 .login__form form .input__item{
 	width: 300px;
 }
-/* 세로 선 없애기 */
+/* 세로선 없애기 */
 .login__form:after {
 	width: 0px;
 }
+
+/*	취소, 이전 버튼 디자인 및 위치 조정  */
+#signup_btn {
+	float: right;
+	border-radius: 2px;
+}
+
+#back_btn {
+	border-radius: 2px;
+	margin-top: 10px;
+}
+
 </style>
 <script>
 </script>
@@ -69,10 +85,9 @@
                             <input id="phone" name="phone" value="phone" type="text" placeholder="Phone Number">
                             <span class="icon_phone"></span>
                         </div>
-                        <button id="signup_btn" type="submit" class="site-btn">수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 						<input type="button" class="site-btn" value="취소" onclick="history.back(1)">
-                        
+                        <input id="back_btn" type="button" class="site-btn" value="취소" onclick="history.back(1)">
+                        <button id="signup_btn" type="submit" class="site-btn">수정</button>
+
                     </form>
                 </div>
             </div>
