@@ -9,7 +9,9 @@
 
 2022. 06. 25							'사용가능한 카드' icon 에러 수정 완료
 
-2022. 06. 27					 결제버튼을 눌렀을 때 Library의 allgame 페이지로 연결
+2022. 06. 26		najune			      동의하기 체크시 결제버튼 활성화 
+
+2022. 06. 27	   noranbear	 결제버튼을 눌렀을 때 Library의 allgame 페이지로 연결
 --------------------------------------------------------------------------------
 -->
 
@@ -31,6 +33,16 @@ function myFunction() {
 	setTimeout(function(){location.href='/allgame';}, 3000);
 }
 
+//동의 체크해야 결제 버튼 활성화
+function agreeCheck(frm)
+{
+   if (frm.checkButton.disabled==true){
+	   frm.checkButton.disabled=false;
+   }else{
+	   frm.checkButton.disabled=true;
+   }
+    
+}
 </script>
 
 
@@ -109,12 +121,16 @@ function myFunction() {
           
         					</div>
         					<label id="consent">
-	          					<input type="checkbox" name="cbox"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
+	          					<input type="checkbox" name="agree" onClick="agreeCheck(this.form)"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
 	        				</label>
 	        				<!-- Use a button to open the snackbar -->
-	        				<input onclick="myFunction()" class="btn btn-danger" value="결제하기">
-	      					<!-- The actual snackbar -->
-							<div id="snackbar">결제가 완료되었습니다.</div>
+                            <div class="btnArea">                            
+                            <input type="button" name="checkButton" value="결제하기" disabled="disabled" class="btn btn-danger" onclick="myFunction()">
+                            </div>
+                            
+                            <!-- The actual snackbar -->
+                            <div id="snackbar">결제가 완료되었습니다.</div>   
+                             
 	      				</form>
 	    			</div>
 	  			</div>
