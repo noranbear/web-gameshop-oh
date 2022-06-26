@@ -1,5 +1,7 @@
 package com.multi.box;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,35 +9,37 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.multi.biz.BoxBiz;
 import com.multi.vo.BoxVO;
 /**
- * @author hongjihu
- * @date 2022. 6. 20.
+ * @author qwaszx357
+ * @date 2022. 6. 26.
  * @version 1.0
  * @description
- * BoxUpdateTests 작성
+ * Box Select User1 Tests 작성
  *
  * =========================================================
  * 	    DATE			   AUTHOR			    NOTE
  * ---------------------------------------------------------
- *  2022. 6. 20.		   hongjihu			BoxUpdateTests
+ *  2022. 6. 26.		  qwaszx357	   Box Select User1 Tests
  *  
  *
  * =========================================================
  */
 @SpringBootTest
-public class BoxUpdateTests {
+public class BoxSelectUser1Tests {
 	
 	@Autowired
 	BoxBiz biz;
 	
 	@Test
 	void contextLoads() {
-		BoxVO box = new BoxVO(6,2,110,"kart");
+		List<BoxVO> list = null;
 		
 		try {
-			biz.modify(box);
-			System.out.println("update ok");
+			list =biz.getuser1("hs55");
+			for (BoxVO obj : list) {
+				System.out.println(obj);
+			}
 		} catch (Exception e) {
-			System.out.println("error");
+			
 			e.printStackTrace();
 		}
 		

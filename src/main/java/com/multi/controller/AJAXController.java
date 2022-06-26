@@ -37,7 +37,7 @@ public class AJAXController {
 			return "1";
 		}
 		try {
-			user = ubiz.getid(id);
+			user = ubiz.getuserid(id);
 			if (user == null) {
 				result = "0";
 			}else {
