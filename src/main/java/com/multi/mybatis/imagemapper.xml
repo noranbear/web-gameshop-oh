@@ -16,8 +16,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</delete>
 	
 	<select id="select" parameterType="int" resultType="imageVO">
-		SELECT p.id , i.name AS imgname FROM PRODUCT p 
-		inner join IMAGE i ON p.id = i.pid
+		SELECT * FROM PRODUCT p 
+		WHERE ID=#{id}
 	</select>
 	<select id="selectall" resultType="imageVO">
 		SELECT * FROM IMAGE

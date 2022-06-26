@@ -134,11 +134,9 @@ public class MainController {
 	@RequestMapping("/detail")
     public String detail(Model m, int id) {
         ProductVO obj = null;
-        
         try {
             obj = pbiz.get(id);
             m.addAttribute("dp", obj);
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
