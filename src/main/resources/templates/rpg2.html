@@ -4,7 +4,7 @@
 	Date			Author					Note
 ---------------------------------------------------------------
 2022. 06. 24	  qwaszx357  		RPG2 category page
-
+2022. 06. 27	  najune	  		카테고리 링크 수정
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
@@ -58,8 +58,8 @@
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
                     <a href="#"><i class="fa fa-home"></i> Home</a>
-                    <a href="/category">Categories</a>
-                    <a href="/action">Rpg</a>
+                    <a href="#">Categories</a>
+                    <a href="/rpg">Rpg</a>
                     <span>Strategy</span>
                 </div>
             </div>
@@ -127,11 +127,11 @@
                                 <li data-filter=".price">month</li>
                                 <li data-filter=".reldate">year</li>
                             </ul>
-						<div class="filter__gallery">
+						<div class="filter__gallery" th:each="p:${plist}">
 							<div class="product__sidebar__view__item set-bg mix day reldate"
 								data-setbg="img/all/battlefield_v_1.png">
 								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
-								<h5><a href="#">battlefield</a></h5>
+								<h5><a href="" th:text="${p.name}" th:href="@{detail(id=${p.id})}">battlefield</a></h5>
 							</div>
 							<div class="product__sidebar__view__item set-bg mix name price"
 								data-setbg="img/all/eternal_edge1.jpg">

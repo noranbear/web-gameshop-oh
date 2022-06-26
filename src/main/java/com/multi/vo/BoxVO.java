@@ -35,6 +35,7 @@ public class BoxVO {
 	private int pid; 		//foreign key
 	private Date date;
 	private String kind;
+	private String imgname;
 	
 	// Constructor for insert
 	public BoxVO(int unum, int pid, String kind) {

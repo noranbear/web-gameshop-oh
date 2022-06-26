@@ -15,9 +15,9 @@
 <div class="row">
 
 	<!-- 카트에 안 넣은 경우 -->
-	<div class="col-lg-3 col-md-4 col-sm-6">
+	<div class="col-lg-3 col-md-4 col-sm-6" th:each="u:${ulist}">
 		<div class="product__item">
-    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+    		<div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${u.imgname}">
 				<!-- 이미지 선명하게 만듬 -->
 				<div class="product-item-contrast"></div>
 					<div class="product__item__text">
@@ -40,9 +40,9 @@
 	</div>
 	
 	<!-- 카트에 넣은 경우 -->
-	<div class="col-lg-3 col-md-4 col-sm-6">
+	<div class="col-lg-3 col-md-4 col-sm-6" th:each="u:${ulist}">
 		<div class="product__item">
-    		<div class="product__item__pic set-bg" data-setbg="img/all/destiny_1.png">
+    		<div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${u.imgname}">
 				<!-- 이미지 선명하게 만듬 -->
 				<div class="product-item-contrast"></div>
 					<div class="product__item__text">
@@ -51,7 +51,7 @@
 				            <li>Active</li>
 				            <li>Movie</li>
 				        </ul>
-				        <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
+				        <h5><a href="#" th:test="${u.imgname}">Sen to Chihiro no Kamikakushi</a></h5>
 				        <div id="cart_price">&#8361; 1000</div>
 				    </div>
 				<div class="product-item-gradient">

@@ -33,12 +33,12 @@ public class ActionController {
 	@RequestMapping("/action")
 	public String action(Model m) {
 		List<ProductVO> list = null;
-		List<ProductVO> nlist = null;
+		List<ProductVO> nlist = null;		
 		try {
 			list = pbiz.getaction();
 			m.addAttribute("plist", list);
 			nlist = pbiz.newgame();
-			m.addAttribute("nplist", nlist);
+			m.addAttribute("nplist", nlist);		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

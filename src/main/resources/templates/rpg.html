@@ -119,7 +119,7 @@
                             <div class="section-title">
                                 <h5>Top played</h5>
                             </div>
-                            <ul class="filter__controls">
+                            <ul class="filter__controls" th:each="p:${plist}">
                                 <li class="active" data-filter="*">Day</li>
                                 <li data-filter=".name">week</li>
                                 <li data-filter=".price">month</li>
@@ -129,7 +129,7 @@
 							<div class="product__sidebar__view__item set-bg mix day reldate"
 								data-setbg="img/all/battlefield_v_1.png">
 								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
-								<h5><a href="#">battlefield</a></h5>
+								<h5><a href="" th:text="${p.name}" th:href="@{detail(id=${p.id})}">battlefield</a></h5>
 							</div>
 							<div class="product__sidebar__view__item set-bg mix name price"
 								data-setbg="img/all/eternal_edge1.jpg">

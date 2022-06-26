@@ -5,6 +5,7 @@
 ---------------------------------------------------------------
 2022. 06. 22	  qwaszx357  		Action category page
 2022. 06. 25	  najune			detail page add
+2022. 06. 26	  najune			top played detail  
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
@@ -28,8 +29,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
-                    <a href="/category">Categories</a>
+                    <a href="/action"><i class="fa fa-home"></i> Home</a>
+                    <a href="#">Categories</a>
                     <span>Action</span>
                 </div>
             </div>
@@ -102,7 +103,7 @@
 							<div class="product__sidebar__view__item set-bg mix day reldate"
 								data-setbg="img/all/battlefield_v_1.png">
 								<div class="view"><i class="fa fa-circle-down"></i> 9154</div>
-								<h5><a href="#">battlefield</a></h5>
+								<h5><a href="#" th:text="${p.name}" th:href="@{detail(id=${p.id})}">battlefield</a></h5>
 							</div>
 							<div class="product__sidebar__view__item set-bg mix name price"
 								data-setbg="img/all/eternal_edge1.jpg">

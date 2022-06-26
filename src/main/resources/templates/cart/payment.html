@@ -5,7 +5,8 @@
 	Date			 Author						Note
 --------------------------------------------------------------------------
 2022. 06. 23		noranbear  		 payment 페이지 생성 및 디자인 수정
-2022. 06. 25							'사용가능한 카드' icon 에러 수정 완료
+2022. 06. 25						'사용가능한 카드' icon 에러 수정 완료
+2022. 06. 26		najune			 동의하기 체크시 결제버튼 활성화 v1
 --------------------------------------------------------------------------
 -->
 
@@ -24,9 +25,66 @@ function myFunction() {
 	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 
 	// snackbar가 내려가고 나서 구매목록으로 자동 direct
-}
+};
+
+//동의 체크해야 결제 버튼 활성화
+$(document).ready(function(){
+
+	$("#order2_chk").click(function(){
+	var order2Chk=$("#order2_chk").prop("checked");
+
+	    if(order2Chk){
+	        $(".order2_chks").prop("checked",true);
+	        $(".btnArea button").css({"backgroundColor":"#d2201d","cursor":"pointer","color":"#fff"}).prop("disabled",false);
+	    }
+	    else{
+	        $(".order2_chks").prop("checked",false);
+	        $(".btnArea button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
+	    }
+	});
+
+	$('.order2_chks').click(function(){
+	    var tmpp = $(this).prop('checked'); 
+	    var tt = $(".order2_chks").length;
+	    var ss = $(".order2_chks:checked").length;
+	    
+	    if(tmpp==true || ss>0){
+	    $(".btnArea button").css({"backgroundColor":"#d2201d","cursor":"pointer","color":"#fff"}).prop("disabled",false);
+	    }
+	    else{
+	    $(".btnArea button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
+	    }
+	    	    
+	    if(tt == ss){
+	    	$("#order2_chk").prop("checked",true);
+	    }else{
+	    	$("#order2_chk").prop("checked",false);
+	    }
+	    
+		});
+	
+	$(window).on('load',function() {     
+        if(result) {
+           //yes
+        	window.location.reload("/cart");
+        } else {
+            //no
+        }
+    });
+});
+
+
+
+
 </script>
 
+
+<style>
+.btnArea{width:100%; margin-top:30px;}
+.checkT{width:2%;}
+.checkT p{width:15px; margin:12.5px auto; height:15px;}
+.checkT p input{display:block; width:100%; height:100%; border:1px solid #cbcbcb; background-color:red;}
+</style>
 
 <section class="product-page spad">
     <div class="container">
@@ -66,7 +124,7 @@ function myFunction() {
 					<div class="row">
   						<div class="col-75">
     						<div class="p_container">
-      							<form action="/action_page.php">
+      							<form action="/cart_page.php">
       
        							 <div class="row">
           							<div class="col-50 top">
@@ -103,12 +161,12 @@ function myFunction() {
           
         					</div>
         					<label id="consent">
-	          					<input type="checkbox" name="cbox"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
+	          					<input type="checkbox" name="cbox" id="order2_chk"> 위 주문 내용을 확인하였으며, 회원 본인은 개인 정보 이용과 제공 및 결제에 동의합니다.
 	        				</label>
 	        				<!-- Use a button to open the snackbar -->
-	        				<input onclick="myFunction()" class="btn btn-danger" value="결제하기">
-	      					<!-- The actual snackbar -->
-							<div id="snackbar">결제가 완료되었습니다.</div>
+	        				<div class="btnArea">
+	        				<button class="btn" id="pbtn" disabled="disabled" onclick="alert('결제가 완료되었습니다.');">결제하기</button>	
+	        				</div>
 	      				</form>
 	    			</div>
 	  			</div>

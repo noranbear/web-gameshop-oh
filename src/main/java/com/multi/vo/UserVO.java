@@ -37,6 +37,7 @@ public class UserVO {
 	private String email;
 	private String phone;
 	private Date regdate;
+	private String imgname;
 	
 	// Constructor for insert
 	public UserVO(String name, String id, String pwd, String email, String phone) {
