@@ -12,21 +12,8 @@
 
 <link rel="stylesheet" href="ourcss/wishlist-style.css" type="text/css">
 
-<script>
-function addcart(pid){
-	var cid = $('#cid').val();
-	var cnt = $('#'+pid+'cnt').val();
-	$.ajax({
-		url:'/addcart',
-		data:{'uid':cid,'pid':pid,'cnt':cnt},
-		success:function(data){
-			alert('Cart에 넣었습니다.');
-		}
-	});
-}
-</script>
 
-<div class="row"  th:if="${session.logincust != null}">
+<div class="row">
 
 	<!-- 카트에 안 넣은 경우 -->
 	<div class="col-lg-3 col-md-4 col-sm-6" th:each="w:${wlist}">
@@ -48,7 +35,7 @@ function addcart(pid){
 	                <!-- 리스트에서 없애기 버튼 -->
 			       	<button id="x_bt" name="xbtn" type="button" class="ep">X</button>
 			    	
-				    <a class="btn btn-danger" th:onclick="addcart([[${w.uid}]])" id="inputcart" href="#">Add to Cart</a>
+				    <a class="btn btn-danger" th:onclick="addcart([[${w.uid}]])" id="inputcart" href="/cart">Add to Cart</a>
 	    		</div>
 	    		</form>	
     		</div>
