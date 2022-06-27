@@ -33,36 +33,27 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div id="thePd" class="col-lg-4 col-md-6 col-sm-6">
+                        <div id="thePd" class="col-lg-4 col-md-6 col-sm-6"  th:each="c:${clist}">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg">
+                                <div class="product__item__pic set-bg"  th:attr="data-setbg='img/all/'+${c.imgname}">
 
 									<!-- 이미지 선명하게 만듬 -->
 									<div class="product-item-contrast"></div>
                                 	<!-- 카트에서 없애기 버튼 -->
-                                   	<button id="x_bt" type="button" class="ep">X</button>
+                                   	<button id="x_bt" type="button" th:href="@{/deletecart(id=${c.id})}" class="ep">X</button>
                                 	<div class="product__item__text">
 	                                    <ul>
 	                                        <li>Active</li>
 	                                        <li>Movie</li>
 	                                    </ul>
-	                                    <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
-	                                    <div id="cart_price">&#8361; 1000</div>
+	                                    <h5><a href="#" th:text="${c.pname}"></a></h5>
+	                                    <div id="cart_price" th:text="'&#8361; ' + ${c.price}"></div>
                                 	</div>
                                 </div> 
                             </div>
                         </div>
                     </div>
                 </div>
-               <!-- Pagination: 필요없을 것 같으니 이따 지우자. -->
-               <div class="product__pagination">
-                   <a href="#" class="current-page">1</a>
-                   <a href="#">2</a>
-                   <a href="#">3</a>
-                   <a href="#">4</a>
-                   <a href="#">5</a>
-                   <a href="#"><i class="fa fa-angle-double-right"></i></a>
-               </div>
             </div>
             <!-- price box -->
             <div class="col-lg-4 col-md-6 col-sm-8">
@@ -73,15 +64,15 @@
                         </div>
                         
                         <!-- 카트 ask박스 -->
-                        <div class="c_container">
+                        <div class="c_container" th:each="t:${total}">
 						    <h4>Cart
 						      <span class="price" style="color:#a1a3cc">
 						        <i class="fa fa-shopping-cart"></i>
-						        <b>4</b>
+						        <span th:text="${t.cnt}"></span>
 						      </span>
 						    </h4>
 						    <hr id="t_hr">
-						    <p id="total_p">Total <span class="price" style="color:#a1a3cc"><b>$30</b></span></p>
+						    <p id="total_p">Total <span class="price" style="color:#a1a3cc" th:text="'&#8361; ' +${t.tprice}"><b>$30</b></span></p>
 						    <a class="btn btn-danger" href="/payment">다음</a>
 						</div>
 						<!-- 카트 ask박스 Ends -->

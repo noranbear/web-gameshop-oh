@@ -126,4 +126,17 @@ public class ProductBiz implements Biz<Integer, ProductVO> {
 		return dao.search3(txt);
 	}
 	
+	// Home
+	public List<ProductVO> getactionhome() throws Exception {
+		return dao.getactionhome();
+	}
+	
+	public List<ProductVO> getrpghome() throws Exception {
+		return dao.getrpghome();
+	}
+	
+	public List<ProductVO> getsportshome() throws Exception {
+		return dao.getsportshome();
+	}
+	
 }
