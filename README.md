@@ -1,3 +1,4 @@
+ <img width="150" alt="스크린샷 2022-06-27 오후 2 28 52" src="https://user-images.githubusercontent.com/103167909/175866253-de6d53a6-6179-4496-97b1-c2d1488fe8d6.png">
  
 # 스트링 부트로 만드는 게임샵 프로젝트
 
