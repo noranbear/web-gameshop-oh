@@ -44,6 +44,8 @@ public class BoxVO {
 	private int cnt;
 	private int tprice;
 	
+	private int rating;
+	
 	// Constructor for insert
 	public BoxVO(int unum, int pid, String kind) {
 		

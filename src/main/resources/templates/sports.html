@@ -4,6 +4,7 @@
 	Date			Author					Note
 ---------------------------------------------------------------
 2022. 06. 24	  qwaszx357  		Sports category page
+2022. 07. 03	  qwaszx357  				rating
 
 ---------------------------------------------------------------
 -->
@@ -99,7 +100,7 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" th:attr="data-setbg='img/all/'+${p.imgname}">
                                     <div class="ep">
-                                    	<span class="fa fa-star"></span>
+                                    	<span class="fa fa-star" th:text="' ' + ${p.rating} + ' / 5'"></span>
                                     </div>
                                     <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>

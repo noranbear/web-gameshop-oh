@@ -18,6 +18,7 @@ import lombok.ToString;
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357		First creation
  *  2022. 6. 23.		 qwaszx357		  imgname add
+ *  2022. 7. 03.		 qwaszx357		  rating add
  *
  * =========================================================
  */
@@ -39,6 +40,7 @@ public class ProductVO {
 	
 	private String imgname;
 	private int star;
+	private int rating;
 	
 	// Constructor for insert, update
 	public ProductVO(int id, String name, int price, String bite, String dev, String reldate, int ctid) {
