@@ -12,6 +12,8 @@
 2022. 06. 26		najune			      동의하기 체크시 결제버튼 활성화 
 
 2022. 06. 27	   noranbear	 결제버튼을 눌렀을 때 Library의 allgame 페이지로 연결
+
+2022. 07. 06	   qwaszx357					 결제금액 출력
 --------------------------------------------------------------------------------
 -->
 
@@ -64,7 +66,7 @@ function agreeCheck(frm)
 					<!-- 결제 방법 -->
 					<div class="row">
 						<div class="col-75 bottom">
-							<div class ="container">
+							<div class ="container" th:each="t:${total}">
 								
 								<label for="pmethod" id="pm_label">결제방법</label>
 									
@@ -75,7 +77,7 @@ function agreeCheck(frm)
 									<option value="ppay">휴대폰</option>
 									<option value="vaccount">무통장입금</option>
 								</select>
-								<h3 id="tprice">결제금액: $100000</h3>
+								<h3 id="tprice" th:text="'결제금액: &#8361; ' +${t.tprice}"></h3>
 							</div>
 						</div>
 					</div>

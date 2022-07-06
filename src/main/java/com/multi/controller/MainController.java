@@ -301,7 +301,18 @@ public class MainController {
 	}
 	
 	@RequestMapping("/payment")
-	public String payment(Model m) {
+	public String payment(Model m, BoxVO b, HttpSession session) {
+		BoxVO total = null;
+		UserVO user = null;
+		user = (UserVO) session.getAttribute("loginuser");
+		if (user.getId() != null) {
+			try {
+				total = bbiz.gettotal(user.getId());
+				m.addAttribute("total", total);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		m.addAttribute("center", "cart/payment");
 		return "/index";
 	}
