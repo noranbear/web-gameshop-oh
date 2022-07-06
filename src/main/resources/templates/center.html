@@ -5,6 +5,36 @@
 #gname {
 	color: white;
 }
+
+/* price box custom */
+.product__item__pic .view {
+    font-size: 20px;
+    font-color: white;
+    color: #ffffff;
+    background: black;             /* Fallback color */
+	background: rgba(0, 0, 0, 1);     /* Black background with 0.5 opacity */
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-weight: bolder;
+    /*#e53637 or slategrey*/
+    
+}
+
+.product__item__pic .comment {
+	font-size: 13px;
+	color: #ffffff;
+	background: black;
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 4px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
 </style>
 <section class="hero">
         <div class="container">
@@ -76,7 +106,7 @@
                                         <div class="ep">
                                         	<span class="fa fa-star" th:text="' ' + ${r.rating} + ' / 5'"></span>
                                         </div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                        <div class="comment"><i class="fa-solid fa-circle-play" th:text="' ' + ${r.played}"></i></div>
                                         <div class="view" th:text="'&#8361; ' + ${r.price}"></div>
                                     </div>
                                     <div class="product__item__text">
@@ -107,7 +137,7 @@
                                         <div class="ep">
                                         	<span class="fa fa-star" th:text="' ' + ${a.rating} + ' / 5'"></span>
                                         </div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                        <div class="comment"><i class="fa-solid fa-circle-play" th:text="' ' + ${a.played}"></i></div>
                                         <div class="view" th:text="'&#8361; ' + ${a.price}"></div>
                                     </div>
                                     <div class="product__item__text">
@@ -138,7 +168,7 @@
                                         <div class="ep">
                                         	<span class="fa fa-star" th:text="' ' + ${s.rating} + ' / 5'"></span>
                                         </div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                        <div class="comment"><i class="fa-solid fa-circle-play" th:text="' ' + ${s.played}"></i></div>
                                         <div class="view" th:text="'&#8361; ' + ${s.price}"></div>
                                     </div>
                                     <div class="product__item__text">

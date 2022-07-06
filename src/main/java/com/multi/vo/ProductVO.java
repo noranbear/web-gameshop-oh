@@ -41,6 +41,7 @@ public class ProductVO {
 	private String imgname;
 	private int star;
 	private int rating;
+	private String played;
 	
 	// Constructor for insert, update
 	public ProductVO(int id, String name, int price, String bite, String dev, String reldate, int ctid) {

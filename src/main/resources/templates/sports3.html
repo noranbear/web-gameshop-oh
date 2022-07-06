@@ -1,10 +1,13 @@
-<!-- Version: 1.0 -->
+<!-- Version: 2.0 -->
 <!--
 ---------------------------------------------------------------
 	Date			Author					Note
 ---------------------------------------------------------------
 2022. 06. 24	  qwaszx357  		Sports3 category page
+
 2022. 07. 03	  qwaszx357  				rating
+
+2022. 07. 06	  qwaszx357  			 played 추가
 
 ---------------------------------------------------------------
 -->
@@ -35,6 +38,7 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
+    font-weight: bolder;
     /*#e53637 or slategrey*/
     
 }
@@ -104,7 +108,7 @@
                                     <div class="ep">
 										<span class="fa fa-star" th:text="' ' + ${p.rating} + ' / 5'"></span>
                                     </div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="comment"><i class="fa-solid fa-circle-play" th:text="' ' + ${p.played}"></i></div>
                                     <div class="view" th:text="'&#8361; ' + ${p.price}"></div>
                                 </div>
                                 <div class="product__item__text">
