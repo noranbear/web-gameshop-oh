@@ -16,8 +16,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</delete>
 	
 	<select id="select" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
-		INNER JOIN IMAGE i ON p.id = i.pid WHERE p.id=#{id} AND i.name LIKE '%1%'
+		SELECT p.id, p.name, p.intro, p.price, p.bite, p.dev, p.reldate, p.ctid,
+		p.gtype, p.played, p.rating, i.name AS imgname, c.name AS catename FROM PRODUCT p 
+		INNER JOIN IMAGE i ON p.id = i.pid 
+		INNER JOIN CATE c ON p.ctid = c.id
+		WHERE p.id=#{id} AND i.name LIKE '%1%'
 	</select>
 	<select id="selectall" resultType="productVO">
 		SELECT * FROM PRODUCT

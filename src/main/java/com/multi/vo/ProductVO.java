@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * @author qwaszx357
  * @date 2022. 6. 20.
- * @version 1.0
+ * @version 2.0
  * @description
  * Product value object
  *
@@ -17,7 +17,10 @@ import lombok.ToString;
  * 	    DATE			   AUTHOR			 NOTE
  * ---------------------------------------------------------
  *  2022. 6. 20.		 qwaszx357		First creation
+ *  
  *  2022. 6. 23.		 qwaszx357		  imgname add
+ *  
+ *  2022. 7. 07.		 qwaszx357		  수정된 컬럼 추가
  *
  * =========================================================
  */
@@ -31,14 +34,18 @@ public class ProductVO {
 	
 	private int id;
 	private String name;
+	private String intro;
 	private int price;
 	private String bite;
 	private String dev;
 	private String reldate;
 	private int ctid;
+	private String gtype;
+	private String played;
+	private int rating;
 	
 	private String imgname;
-	private int star;
+	private String catename;
 	
 	// Constructor for insert, update
 	public ProductVO(int id, String name, int price, String bite, String dev, String reldate, int ctid) {
