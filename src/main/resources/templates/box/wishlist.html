@@ -7,6 +7,7 @@
 	Date			 Author					Note
 ---------------------------------------------------------------
 2022. 06. 25		noranbear		카드 디자인 및 버튼 구현 완료
+2022. 07. 03	    qwaszx357  				rating
 ---------------------------------------------------------------
 -->
 
@@ -22,7 +23,7 @@
 				<!-- 이미지 선명하게 만듬 -->
 				<div class="product-item-contrast"></div>
 					<div class="product__item__text">
-						<div id="rating"><span class="fa fa-star"></span>4/5</div>
+						<div id="rating"><span class="fa fa-star" th:text="' ' + ${w.rating} + ' / 5'"></span></div>
 						<ul>
 				            <li>Active</li>
 				            <li>Movie</li>

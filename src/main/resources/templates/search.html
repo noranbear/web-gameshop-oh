@@ -1,4 +1,4 @@
-<!-- Version: 2.0 -->
+<!-- Version: 3.0 -->
 <!--
 ---------------------------------------------------------------
 	Date			Author					Note
@@ -6,6 +6,9 @@
 2022. 06. 24.	  qwaszx357  			Search page
 
 2022. 06. 27.	  noranbear			   pagination 삭제
+
+2022. 07. 06.	  qwaszx357  			played 추가
+
 ---------------------------------------------------------------
 -->
 <meta charset="UTF-8">
@@ -57,6 +60,36 @@
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+/* price box custom */
+.product__item__pic .view {
+    font-size: 20px;
+    font-color: white;
+    color: #ffffff;
+    background: black;             /* Fallback color */
+	background: rgba(0, 0, 0, 1);     /* Black background with 0.5 opacity */
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-weight: bolder;
+    /*#e53637 or slategrey*/
+    
+}
+
+.product__item__pic .comment {
+	font-size: 13px;
+	color: #ffffff;
+	background: black;
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 4px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
 }
 
 </style>
@@ -131,7 +164,7 @@ $(document).ready(function(){
                                     <div class="ep">
                                     	<span class="fa fa-star"></span>
 									</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="comment"><i class="fa-solid fa-circle-play" th:text="' ' + ${s.played}"></i></div>
                                     <div class="view" th:text="'&#8361; ' + ${s.price}"></div>
                                 </div>
                                 <div class="product__item__text">

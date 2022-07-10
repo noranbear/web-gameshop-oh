@@ -32,100 +32,100 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 
 	<!-- Action page -->
 	<select id="getaction" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (11, 12, 13) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
 	</select>
 	<select id="getaction1" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
       	INNER JOIN IMAGE i ON p.id = i.pid
       	WHERE p.ctid=11 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getaction2" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=12 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getaction3" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=13 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	
 	<!-- RPG page -->
 	<select id="getrpg" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (21, 22, 23) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
 	</select>
 	<select id="getrpg1" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
       	INNER JOIN IMAGE i ON p.id = i.pid
       	WHERE p.ctid=21 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getrpg2" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=22 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getrpg3" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=23 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 
 	<!-- Sports page -->
 	<select id="getsports" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (31, 32, 33) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 9
 	</select>
 	<select id="getsports1" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
       	INNER JOIN IMAGE i ON p.id = i.pid
       	WHERE p.ctid=31 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getsports2" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=32 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	<select id="getsports3" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid=33 AND i.name LIKE '%2%' ORDER BY p.name
 	</select>
 	
 	<!-- search  -->
 	<select id="search1" parameterType="String" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.name;
 	</select>
 	<select id="search2" parameterType="String" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.price;
 	</select>
 	<select id="search3" parameterType="String" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.name LIKE CONCAT('%',#{txt},'%') AND i.name LIKE '%2%' ORDER BY p.reldate;
 	</select>
 	
 	<!-- Home page -->
 	<select id="getactionhome" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (11, 12, 13) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
 	</select>
 	<select id="getrpghome" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (21, 22, 23) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
 	</select>
 	<select id="getsportshome" parameterType="int" resultType="productVO">
-		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, i.name AS imgname FROM PRODUCT p 
+		SELECT p.id, p.name, p.price, p.bite, p.dev, p.reldate, p.ctid, p.rating, p.played, i.name AS imgname FROM PRODUCT p 
 		INNER JOIN IMAGE i ON p.id = i.pid
 		WHERE p.ctid IN (31, 32, 33) AND i.name LIKE '%2%' ORDER BY p.name LIMIT 6
 	</select>
